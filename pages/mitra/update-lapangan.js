@@ -68,7 +68,7 @@ export default function Updetlapangan() {
     const handlePost = async (e) => {
         e.preventDefault();
 
-        //Cloudinary
+        //Cloudinary Update
         const body = new FormData();
         let imageUrl = []
 
@@ -84,10 +84,16 @@ export default function Updetlapangan() {
             await console.log('Secure URL')
             await console.log(response.secure_url)
             imageUrl.push(response.secure_url)
+            
             // console.log('Secure URL Array')
             // console.log(imageUrl)
         }
-        setGambar(Object.assign(gambar, imageUrl))
+        for (let i = 0; i < _gambar.length; i++){
+            imageUrl.push(_gambar[i])
+        }
+        console.log('Image URL')
+        console.log(imageUrl)
+        setGambar(Object.assign(_gambar, imageUrl))
         // console.log('Secure URL State')
         // console.log(gambar)
 
@@ -97,7 +103,6 @@ export default function Updetlapangan() {
         setError('');
         setMessage('');
         // fields check
-        gabungGambar()
         try {
             // Update post
             await fetch('/api/lapangandb', {
