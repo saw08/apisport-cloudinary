@@ -54,7 +54,7 @@ export default function Addlapangan() {
     const handlePost = async (e) => {
         e.preventDefault();
 
-        //Cloudinary
+        //Cloudinary ADD
         const body = new FormData();
         let imageUrl = []
 

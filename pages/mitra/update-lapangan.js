@@ -80,9 +80,9 @@ export default function Updetlapangan() {
                 method: "POST",
                 body
             }).then(r => r.json());
-            await console.log(response)
-            await console.log('Secure URL')
-            await console.log(response.secure_url)
+            // await console.log(response)
+            // await console.log('Secure URL')
+            // await console.log(response.secure_url)
             imageUrl.push(response.secure_url)
             
             // console.log('Secure URL Array')
@@ -91,8 +91,8 @@ export default function Updetlapangan() {
         for (let i = 0; i < _gambar.length; i++){
             imageUrl.push(_gambar[i])
         }
-        console.log('Image URL')
-        console.log(imageUrl)
+        // console.log('Image URL')
+        // console.log(imageUrl)
         setGambar(Object.assign(_gambar, imageUrl))
         // console.log('Secure URL State')
         // console.log(gambar)
