@@ -132,9 +132,24 @@ export default function Pembayaran() {
 
   const handlePost = async (e) => {
     e.preventDefault();
+
+    //Cloudinary Single
+    let imageUrl = ''
+    const body = new FormData();
+    //console.log("file", image)
+    body.append("file", image);
+    body.append('upload_preset', 'my-uploads');
+    const response = await fetch('https://api.cloudinary.com/v1_1/api-sport/image/upload', {
+      method: 'POST',
+      body
+    }).then(r => r.json());
+    imageUrl = response.secure_url
+
+    //Cloudinary End
+    console.log(buktiBayar)
+
     // reset error and message
     setMessage('');
-    setStateDummy('DummyKirim')
     // fields check
     if (!nama || !email || !noWa || !tim || !noRekening || !opsiBayar || !buktiBayar || !namaVenue || !tglMain || !jadwalMain || !harga || !status || !hargaDP || !diterima) {
       alert('Tolong isi semua kolom')
@@ -187,7 +202,7 @@ export default function Pembayaran() {
             tim: tim,
             noRekening: noRekening,
             opsiBayar: opsiBayar,
-            buktiBayar: buktiBayar,
+            buktiBayar: imageUrl,
             hargaDP: hargaDP,
             objectId: idTransaksiReq
           }),
@@ -219,15 +234,7 @@ export default function Pembayaran() {
       setCreateObjectURL(URL.createObjectURL(i));
     }
   };
-  const uploadToServer = async (event) => {
-    const body = new FormData();
-    //console.log("file", image)
-    body.append("file", image);
-    const response = await fetch("/api/upload", {
-      method: "POST",
-      body
-    });
-  };
+
 
 
   return (
@@ -339,7 +346,7 @@ export default function Pembayaran() {
               <span className='font-weight-normal' style={{ color: 'red' }}><b>*Mohon untuk mengupload bukti pembayaran hingga 13:30 WIB atau pembayaran akan di cancel</b></span>
             </div> */}
             <div className="d-grid gap-2 py-4 ">
-              <button className="btn btn-primary p-3 fw-bold" type="submit" onClick={uploadToServer} style={{ backgroundColor: '#006E61' }}>Kirim</button>
+              <button className="btn btn-primary p-3 fw-bold" type="submit" style={{ backgroundColor: '#006E61' }}>Kirim</button>
             </div>
           </form>
         </div>
