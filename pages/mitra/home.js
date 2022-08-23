@@ -44,10 +44,10 @@ export default function HomeMitra({namaVenueProps}) {
                                                 <>
                                                     {i == 0 ?
                                                         (<div className="carousel-item active">
-                                                            <img src={`/uploads/${data}`} className="img-fluid" width={400} height={200} />
+                                                            <img src={`${data}`} className="img-fluid" width={400} height={200} />
                                                         </div>) :
                                                         (<div className="carousel-item">
-                                                            <img src={`/uploads/${data}`} className="img-fluid" width={400} height={200} />
+                                                            <img src={`${data}`} className="img-fluid" width={400} height={200} />
                                                         </div>)}
                                                 </>
                                             ))}

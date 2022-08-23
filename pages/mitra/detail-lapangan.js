@@ -316,10 +316,10 @@ export default function DetailLapangan() {
                                 <>
                                     {i == 0 ?
                                         (<div className="carousel-item active">
-                                            <img src={`/uploads/${data}`} className="" width={400} height={200} />
+                                            <img src={`${data}`} className="" width={400} height={200} />
                                         </div>) :
                                         (<div className="carousel-item">
-                                            <img src={`/uploads/${data}`} className="" width={400} height={200} />
+                                            <img src={`${data}`} className="" width={400} height={200} />
                                         </div>)}
                                 </>
                             ))}

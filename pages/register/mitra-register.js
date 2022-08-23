@@ -57,6 +57,31 @@ export default function MitraRegister() {
 
   const handlePost = async (e) => {
     e.preventDefault();
+
+    //Cloudinary ADD
+    const body = new FormData();
+    let imageUrl = []
+
+    body.append('upload_preset', 'my-uploads');
+    //console.log("file", image)
+    for (let i = 0; i < image.length; i++) {
+      await body.append("file", image[i]);
+      const response = await fetch('https://api.cloudinary.com/v1_1/api-sport/image/upload', {
+        method: "POST",
+        body
+      }).then(r => r.json());
+      await console.log(response)
+      await console.log('Secure URL')
+      await console.log(response.secure_url)
+      imageUrl.push(response.secure_url)
+      // console.log('Secure URL Array')
+      // console.log(imageUrl)
+    }
+    setFotoVenue(Object.assign(fotoVenue, imageUrl))
+        // console.log('Secure URL State')
+        // console.log(gambar)
+        //Cloudinary END
+    
     setEmail(session.user.email)
     setCheck()
     setJam()
@@ -89,7 +114,7 @@ export default function MitraRegister() {
       fotoVenue
     };
     // save the post
-    let response = await fetch('/api/mitradb', {
+    let response = await fetch('/api/mitrapendingdb', {
       method: 'POST',
       body: JSON.stringify(mitraPending),
     });
@@ -205,18 +230,6 @@ export default function MitraRegister() {
       setImage(array => [...array, i]);
       setCreateObjectURL(array => [...array, URL.createObjectURL(i)]);
     }
-  };
-  const uploadToServer = async (event) => {
-    const body = new FormData();
-    //console.log("file", image)
-    for (let i = 0; i < image.length; i++) {
-      await body.append("file", image[i]);
-      const response = await fetch("/api/upload", {
-        method: "POST",
-        body
-      });
-    }
-
   };
 
   
@@ -505,7 +518,6 @@ export default function MitraRegister() {
                   </div>
                   <div className="container-login100-form-btn my-3">
                     <button type="submit"
-                      onClick={uploadToServer}
                       className="btn btn-outline-secondary" style={{ backgroundColor: '#006E61', color: 'rgb(255, 255, 255)', borderRadius: '5cm', width: 500, height: 50 }}>DAFTAR</button>
                   </div>
                   <div className="flex-col-c mt-3">

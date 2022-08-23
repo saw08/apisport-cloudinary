@@ -61,6 +61,7 @@ export default function DetailMitra() {
 
     const handlePost = async (e) => {
         e.preventDefault();
+        
         // fields check
         if (!namaVenue || !namaPemilikVenue || !alamat || !noWa || !instagram || !kategori || !hariOperasional ||
             !jamOperasional || !fasilitas || !opsiBayar || !rekening || !namaAdmin || !noWaAdmin || !email || !fotoVenue) {
@@ -276,7 +277,7 @@ export default function DetailMitra() {
                                         <>
                                             <div className='cols-2 mt-3 mb-3 row row-cols-2'>
                                                 <div className='cols-1 col-md-6'>
-                                                    <img id='image' className='img-fluid d-block border border-dark' width={150} height={150} src={`/uploads/${fotoVenue[i]}`} />
+                                                    <img id='image' className='img-fluid d-block border border-dark' width={150} height={150} src={`${fotoVenue[i]}`} />
                                                 </div>
 
 

@@ -128,13 +128,44 @@ export default function EditMitra() {
     //UPDATE
     const handlePost = async (e) => {
         e.preventDefault();
+
+        //Cloudinary Update
+        const body = new FormData();
+        let imageUrl = []
+
+        body.append('upload_preset', 'my-uploads');
+        //console.log("file", image)
+        for (let i = 0; i < image.length; i++) {
+            await body.append("file", image[i]);
+            const response = await fetch('https://api.cloudinary.com/v1_1/api-sport/image/upload', {
+                method: "POST",
+                body
+            }).then(r => r.json());
+            // await console.log(response)
+            // await console.log('Secure URL')
+            // await console.log(response.secure_url)
+            imageUrl.push(response.secure_url)
+
+            // console.log('Secure URL Array')
+            // console.log(imageUrl)
+        }
+        for (let i = 0; i < _fotoVenue.length; i++) {
+            imageUrl.push(_fotoVenue[i])
+        }
+        // console.log('Image URL')
+        // console.log(imageUrl)
+        setFotoVenue(Object.assign(_fotoVenue, imageUrl))
+        // console.log('Secure URL State')
+        // console.log(gambar)
+
+        //Cloudinary END
+
         setCheck()
         setJam()
         setHari()
         // reset error and message
         setError('');
         setMessage('');
-        gabungGambar()
         // fields check
         try {
             // Update post
@@ -304,17 +335,6 @@ export default function EditMitra() {
         }
     };
 
-    const uploadToServer = async (event) => {
-        const body = new FormData();
-        //console.log("file", image)
-        for (let i = 0; i < image.length; i++) {
-            await body.append("file", image[i]);
-            const response = await fetch("/api/upload", {
-                method: "POST",
-                body
-            });
-        }
-    };
 
     function myFunction() {
         var x = document.getElementById("passwordInput");
@@ -602,7 +622,7 @@ export default function EditMitra() {
                                         <>
                                             <div className='cols-2 mt-3 mb-3 row row-cols-2'>
                                                 <div className='col-10 col-md-10'>
-                                                    <img id='image' className='img-fluid d-block border border-dark' width={300} height={300} src={`/uploads/${data}`} />
+                                                    <img id='image' className='img-fluid d-block border border-dark' width={300} height={300} src={`${data}`} />
                                                 </div>
                                                 <div className='col-10 col-md-2'>
                                                     <button className="form-control"
@@ -647,7 +667,6 @@ export default function EditMitra() {
 
                         <div className="row mt-3 container-login100-form-btn my-3 g-3">
                             <button type="submit"
-                                onClick={uploadToServer}
                                 className="btn btn-outline-secondary mx-3" style={{ backgroundColor: '#ba8b1e', color: 'rgb(255, 255, 255)', borderRadius: '5cm', width: 500, height: 50 }}>
                                 EDIT MITRA
                             </button>
