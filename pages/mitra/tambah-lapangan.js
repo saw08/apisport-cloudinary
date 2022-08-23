@@ -19,10 +19,14 @@ export default function Addlapangan() {
 
     //Gambar
     const [gambar, setGambar] = useState([]);
+    const [imgUrl, setImgUrl] = useState([]);
     const [image, setImage] = useState([]);
     const [createObjectURL, setCreateObjectURL] = useState([]);
     const [error1, setError] = useState('');
     const [message, setMessage] = useState('');
+
+    //Tambahan Variabel CLoudinary
+    
 
     let router = useRouter()
 
@@ -49,6 +53,32 @@ export default function Addlapangan() {
 
     const handlePost = async (e) => {
         e.preventDefault();
+
+        //Cloudinary
+        const body = new FormData();
+        let imageUrl = []
+
+        body.append('upload_preset', 'my-uploads');
+        //console.log("file", image)
+        for (let i = 0; i < image.length; i++) {
+            await body.append("file", image[i]);
+            const response = await fetch('https://api.cloudinary.com/v1_1/api-sport/image/upload', {
+                method: "POST",
+                body
+            }).then(r => r.json());
+            await console.log(response)
+            await console.log('Secure URL')
+            await console.log(response.secure_url)
+            imageUrl.push(response.secure_url)
+            // console.log('Secure URL Array')
+            // console.log(imageUrl)
+        }
+        setGambar(Object.assign(gambar, imageUrl))
+        // console.log('Secure URL State')
+        // console.log(gambar)
+
+        //Cloudinary END
+
         // reset error and message
         setError('');
         setMessage('');
@@ -242,17 +272,6 @@ export default function Addlapangan() {
         }
     }
 
-    const uploadToServer = async (event) => {
-        const body = new FormData();
-        //console.log("file", image)
-        for (let i = 0; i < image.length; i++) {
-            await body.append("file", image[i]);
-            const response = await fetch("/api/upload", {
-                method: "POST",
-                body
-            });
-        }
-    };
 
     return (
         <div className="container-xxl mx-auto p-4 header-2-2">
@@ -423,7 +442,6 @@ export default function Addlapangan() {
                                                 backgroundColor: '#006E61', color: 'rgb(255, 255, 255)',
                                                 borderRadius: '5cm', width: 500, height: 50
                                             }}
-                                            onClick={uploadToServer}
                                         >SIMPAN</button>
                                     </div>
                                 </>

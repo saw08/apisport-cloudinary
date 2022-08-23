@@ -68,6 +68,31 @@ export default function Updetlapangan() {
     const handlePost = async (e) => {
         e.preventDefault();
 
+        //Cloudinary
+        const body = new FormData();
+        let imageUrl = []
+
+        body.append('upload_preset', 'my-uploads');
+        //console.log("file", image)
+        for (let i = 0; i < image.length; i++) {
+            await body.append("file", image[i]);
+            const response = await fetch('https://api.cloudinary.com/v1_1/api-sport/image/upload', {
+                method: "POST",
+                body
+            }).then(r => r.json());
+            await console.log(response)
+            await console.log('Secure URL')
+            await console.log(response.secure_url)
+            imageUrl.push(response.secure_url)
+            // console.log('Secure URL Array')
+            // console.log(imageUrl)
+        }
+        setGambar(Object.assign(gambar, imageUrl))
+        // console.log('Secure URL State')
+        // console.log(gambar)
+
+        //Cloudinary END
+
         // reset error and message
         setError('');
         setMessage('');
@@ -274,17 +299,6 @@ export default function Updetlapangan() {
         console.log(createObjectURL)
     };
 
-    const uploadToServer = async (event) => {
-        const body = new FormData();
-        //console.log("file", image)
-        for (let i = 0; i < image.length; i++) {
-            await body.append("file", image[i]);
-            const response = await fetch("/api/upload", {
-                method: "POST",
-                body
-            });
-        }
-    };
 
     const gabungGambar = () => {
         let gambarGabung = _gambar.concat(_gambarNew)
@@ -378,7 +392,7 @@ export default function Updetlapangan() {
                                     <>
                                         <div className='cols-2 mt-3 mb-3 row row-cols-2'>
                                             <div className='col-10 col-md-10'>
-                                                <img id='image' className='img-fluid d-block border border-dark' width={300} height={300} src={`/uploads/${data}`} />
+                                                <img id='image' className='img-fluid d-block border border-dark' width={300} height={300} src={`${data}`} />
                                             </div>
                                             <div className='col-10 col-md-2'>
                                                 <button className="form-control"
@@ -512,7 +526,6 @@ export default function Updetlapangan() {
                                                 backgroundColor: '#006E61', color: 'rgb(255, 255, 255)',
                                                 borderRadius: '5cm', width: 500, height: 50
                                             }}
-                                            onClick={uploadToServer}
                                         >UPDATE</button>
                                     </div>
                                 </>

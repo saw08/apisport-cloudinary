@@ -19,10 +19,10 @@ export default function Carousel({ gambar, nama }) {
                         <>
                             {i == 0 ?
                                 (<div className="carousel-item active">
-                                    <img src={`/uploads/${data}`} className=" img-fluid"/>
+                                    <img src={`${data}`} className=" img-fluid"/>
                                 </div>) :
                                 (<div className="carousel-item">
-                                    <img src={`/uploads/${data}`} className=" img-fluid"/>
+                                    <img src={`${data}`} className=" img-fluid"/>
                                 </div>)}
                         </>
                     ))}
