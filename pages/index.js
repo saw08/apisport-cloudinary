@@ -38,10 +38,10 @@ export default function Home() {
             <img src="images/slider-1.jpg" className="d-block img-fluid w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src="images/slider-1.jpg" className="d-block w-100" alt="..." />
+            <img src="images/11.jpg" className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src="images/slider-1.jpg" className="d-block w-100" alt="..." />
+            <img src="images/22.png" className="d-block w-100" alt="..." />
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
