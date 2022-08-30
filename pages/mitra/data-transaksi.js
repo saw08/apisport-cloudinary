@@ -84,7 +84,7 @@ export default function Datatransaksi({ namaVenueProps }) {
                                         <td>{index + 1}</td>
                                         <td>{data.nama}</td>
                                         <td>{data.tim}</td>
-                                        <td>{data.diterima}</td>
+                                        <td>{`${data.diterimaTgl} ${data.diterimaJam}`}</td>
                                         <td>{moment(data.tglMain, 'YYYY-MM-DD').format('DD/MM/YYYY')}</td>
                                         <td>{` Rp ${data.harga.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`}</td>
                                         <td>{data.lapangan}</td>
