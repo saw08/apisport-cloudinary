@@ -70,7 +70,7 @@ export default function CardLapangan({props}) {
                                     }
 
                                 }}>
-                                    <button className='btn btn-success text-white p-2'>Pesan Sekarang</button>
+                                    <button className='btn btn-success text-white p-2'><b> Pesan Sekarang </b></button>
                                 </Link>
                                 </div>
 
@@ -78,17 +78,16 @@ export default function CardLapangan({props}) {
                             </div>
                             <div className="col-lg-8 p-2 ">
                             <div className='row' >
-                                <h3 className='mb-4'>Jadwal Lapangan</h3>
                                 {gabunganJadwal.length === 0 ? (
                                     <h2>Tidak ada data</h2>
                                 ) : (
                                     <>
                                         {gabunganJadwal.map((data, index) => (
-                                             <div className='col-6 col-sm-4 mb-3'>
-                                                <div className='card'>
-                                                    <div style={{color:"black"}}>
-                                                        <span>{data}</span><br></br>
-                                                        <span>Rp {gabunganHarga[index].toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}</span>
+                                             <div className='col-3 col-sm-4 mb-3'>
+                                                <div className='card p-1'>
+                                                    <div style={{ color: "black",fontSize:"12px"}}>
+                                                        <span>{data}</span><br />
+                                                        {/* <span>Rp {gabunganHarga[index].toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")} </span> */}
                                                     </div>
                                                 </div>
                                             </div>

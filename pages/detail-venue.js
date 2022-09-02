@@ -73,11 +73,11 @@ export default function Detailvenue() {
                 </div>
                 <div className="col-md-8 text-start">
                   <h5 className="card-title mt-3" style={{ color: "black" }}><strong>{venue.infoVenue[0].namaVenue}</strong></h5>
-                  <span className="card-text" style={{ color: "black" }}><icon className='fa fa-calendar'></icon> {venue.infoVenue[0].hariOperasional}</span><br></br>
-                  <span className="card-text" style={{ color: "black" }}><icon className='fa fa-clock'></icon> {venue.infoVenue[0].jamOperasional}</span><br></br>
-                  <span className="card-text" style={{ color: "black" }}><icon className='fa fa-compass'></icon> {venue.infoVenue[0].alamat}</span><br></br>
-                  <span className="card-text" style={{ color: "black" }}><icon className='fa fa-futbol'></icon> {venue.infoVenue[0].kategori}</span><br></br>
-                  <span className="card-text text-muted" style={{ color: "black" }}><strong>Harga mulai dari </strong><br></br><span style={{ color: "green" }}>{venue.infoLapangan.length === 0 ? ('Tidak ada data lapangan tersedia') : (` Rp ${venue.infoLapangan[0].hargaPagi.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`)}</span></span>
+                  <span className="card-text" style={{ color: "black" }}><icon className='fa fa-calendar'></icon><b> {venue.infoVenue[0].hariOperasional}</b></span><br></br>
+                  <span className="card-text" style={{ color: "black" }}><icon className='fa fa-clock'></icon> <b>{venue.infoVenue[0].jamOperasional}</b></span><br></br>
+                <span className="card-text" style={{ color: "black" }}><icon className='fa fa-compass'></icon> <b>{venue.infoVenue[0].alamat}</b></span><br></br>
+              <span className="card-text" style={{ color: "black" }}><icon className='fa fa-futbol'></icon><b> {venue.infoVenue[0].kategori}</b></span><br></br>
+              <span className="card-text text-muted" style={{ color: "black" }}><strong>Harga mulai dari </strong><br></br><span style={{ color: "green" }}><b>{venue.infoLapangan.length === 0 ? ('Tidak ada data lapangan tersedia') : (` Rp ${venue.infoLapangan[0].hargaPagi.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`)}</b></span></span>
                 </div>
               </div>
               {/* END ROW */}
@@ -88,16 +88,16 @@ export default function Detailvenue() {
       </div>
       <div className='row'>
         <a  style={{ color: "black" }}>
-          <h5 className='d-flex justify-content-between'>Fasilitas
+          <h5 className='d-flex justify-content-between'><b> Fasilitas</b>
           </h5>
         </a>
         <div>
           <div className='d-flex justify-content-between'  >
-            <span>{venue.infoVenue[0].fasilitas}</span>
+            <span><b>{venue.infoVenue[0].fasilitas}</b></span>
           </div>
         </div>
       </div>
-      <div className='row mt-3' style={{ color: "black" }}>
+      <div className='row mt-3' style={{ color: "black" }}><b>
        
           <h5 className='d-flex justify-content-between'>Sosial Media</h5>
         <div>
@@ -107,7 +107,7 @@ export default function Detailvenue() {
           <div className="d-flex justify-content-between" >
             <span className='mb-2'><b><icon className='fa fa-whatsapp' /></b> {venue.infoVenue[0].noWa}</span>
           </div>
-        </div>
+        </div></b>
       </div>
       <div className='row mt-3' style={{ color: "black" }}>
           <h5 className='d-flex justify-content-between'>Daftar Lapangan</h5>
