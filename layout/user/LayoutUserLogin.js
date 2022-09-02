@@ -2,6 +2,7 @@ import React from 'react'
 import Router, { useRouter } from 'next/router'
 import Link from 'next/link'
 import router from 'next/router';
+import Head from 'next/head';
 import Navbar from '../../components/user/Navbar'
 import Footer from '../../components/user/Footer'
 import Helmet from 'react-helmet'
@@ -14,6 +15,10 @@ const LayoutUser = ({ children }) => {
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="undefined" crossorigin="anonymous"></script>
                 <script src="../styles/bootstrap/js/bootstrap.min.js"></script>
             </Helmet>
+            <Head>
+                <title>ApiSport</title>
+                <link rel="icon" href="/ico.png" />
+            </Head>
             <Navbar></Navbar>
             {children}
             <Footer></Footer>

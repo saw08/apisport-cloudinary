@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head';
 import Router, { useRouter } from 'next/router'
 import Link from 'next/link'
 import router from 'next/router';
@@ -45,6 +46,10 @@ const LayoutAdmin = ({ children }) => {
                         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="undefined" crossorigin="anonymous"></script>
                         <script src="../styles/bootstrap/js/bootstrap.min.js"></script>
                     </Helmet>
+                    <Head>
+                        <title>ApiSport</title>
+                        <link rel="icon" href="/ico.png" />
+                    </Head>
                     <Navbar namaVenueProps={emailDb.namaVenue[0].namaVenue}></Navbar>
                     {
                         React.cloneElement(children, {

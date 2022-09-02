@@ -3,7 +3,7 @@ import Router, { useRouter } from 'next/router'
 import Link from 'next/link'
 import router from 'next/router';
 import Helmet from 'react-helmet'
-
+import Head from 'next/head';
 
 const LayoutDev = ({ children }) => {
 
@@ -13,6 +13,10 @@ const LayoutDev = ({ children }) => {
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="undefined" crossorigin="anonymous"></script>
                 <script src="../styles/bootstrap/js/bootstrap.min.js"></script>
             </Helmet>
+            <Head>
+                <title>ApiSport</title>
+                <link rel="icon" href="/ico.png" />
+            </Head>
             <div>
                 <div className="navbar navbar-dark bg-dark shadow-sm">
                     <div className="container">
