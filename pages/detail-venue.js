@@ -99,7 +99,7 @@ export default function Detailvenue() {
       </div>
       <div className='row mt-3' style={{ color: "black" }}><b>
        
-          <h5 className='d-flex justify-content-between'>Sosial Media</h5>
+        <h5 className='d-flex justify-content-between'><b>Sosial Media</b></h5>
         <div>
           <div className="d-flex justify-content-between" >
             <span className='mb-2'><b><icon className='fa fa-instagram' /></b> {venue.infoVenue[0].instagram}</span>
@@ -110,7 +110,7 @@ export default function Detailvenue() {
         </div></b>
       </div>
       <div className='row mt-3' style={{ color: "black" }}>
-          <h5 className='d-flex justify-content-between'>Daftar Lapangan</h5>
+        <h5 className='d-flex justify-content-between'><b>Daftar Lapangan</b></h5>
         <div className='row flex-row col-12 col-md-12'>
           {venue.infoLapangan.length === 0 ? (
             <h3>Tidak ada data Lapangan</h3>

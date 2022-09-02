@@ -139,7 +139,7 @@ export default function Home() {
         <div className="container my-4 text-black-50" >
           <h3 style={{ color: 'black' }} className='fw-bold fst-italic'>REKOMENDASI LAPANGAN</h3>
           <hr></hr>
-          <div className="row g-2 mt-3">
+          <div className="row g-2 mt-3 p-1">
             {rekomendasi.length === 0 ? (
               <></>
             ) : (
@@ -155,9 +155,7 @@ export default function Home() {
         </div>
         <div className='container mt-4 my-4 text-black-50'>
           <h3 style={{ color: '#EE8F00' }} className='mb-5 py-3 header-custom'>TESTIMONI</h3>
-          <div className='p-1'>
             <CardTestimonial />
-          </div>
         </div>
         <div className='container mt-4 my-4 text-black-50'>
           <h3 style={{ color: '#EE8F00' }} className='mb-5 header-custom'>ALUR BOOKING</h3>
