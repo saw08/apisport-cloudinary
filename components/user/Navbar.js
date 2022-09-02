@@ -40,7 +40,7 @@ const Navbar = () => {
                 <a href='/'>
                 <img style={{ marginRight: '0.75rem', height: '50px' }} src="/y.png" alt />
                 </a>
-                <button className="navbar-toggler border-0" type="button" data-bs-toggle="modal" data-bs-target="/">
+                <button className="navbar-toggler border-0" type="button" data-bs-toggle="modal" data-bs-target="#targetModal-item">
                     <span className="navbar-toggler-icon" />
                 </button>
                 <div className="modal-item modal fade" id="targetModal-item" tabIndex={-1} role="dialog" aria-labelledby="targetModalLabel" aria-hidden="true">
