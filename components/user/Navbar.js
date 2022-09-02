@@ -37,10 +37,10 @@ const Navbar = () => {
     return (
         <>
             <nav className="navbar navbar-expand-lg  navbar-light">
-                
+                <a href='/'>
                 <img style={{ marginRight: '0.75rem', height: '50px' }} src="/y.png" alt />
-
-                <button className="navbar-toggler border-0" type="button" data-bs-toggle="modal" data-bs-target="#targetModal-item">
+                </a>
+                <button className="navbar-toggler border-0" type="button" data-bs-toggle="modal" data-bs-target="/">
                     <span className="navbar-toggler-icon" />
                 </button>
                 <div className="modal-item modal fade" id="targetModal-item" tabIndex={-1} role="dialog" aria-labelledby="targetModalLabel" aria-hidden="true">
