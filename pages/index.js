@@ -35,7 +35,7 @@ export default function Home() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="images/11.png" className="d-block img-fluid w-100" alt="..." />
+            <img src="images/11.jpg" className="d-block img-fluid w-100" alt="..." />
           </div>
           <div className="carousel-item">
             <img src="images/22.png" className="d-block w-100" alt="..." />
