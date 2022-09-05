@@ -1,9 +1,12 @@
 import CardLapangan from "../../components/mitra/home/CardLapangan";
 import useSWR from 'swr'
 
-export default function HomeMitra({namaVenueProps}) {
+export default function HomeMitra({ namaVenueProps }) {
+    var currentdate = new Date();
+    var dateTime = (currentdate.getMonth() + 1) + "/"
+        + currentdate.getFullYear()
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
-    const { data: data, error } = useSWR(`/api/detailvenuedb?namaVenueReq=${namaVenueProps}`, fetcher)
+    const { data: data, error } = useSWR(`/api/mitrahomedb?namaVenueReq=${namaVenueProps}&diterimaTglReq=${`8/2022`}`, fetcher)
 
 
 
@@ -15,6 +18,10 @@ export default function HomeMitra({namaVenueProps}) {
 
     let namaHasil = namaVenueProps.split(" ").join("");
     let venue = data['message']
+    let total = 0
+    for (let i = 0; i < venue.dashboard.length; i++) {
+        total = total + venue.dashboard[i].harga
+    }
     console.log(venue)
 
     return (
@@ -73,7 +80,9 @@ export default function HomeMitra({namaVenueProps}) {
                                     <span className="card-text" style={{ color: "black" }}><icon className='fa fa-futbol'></icon> {venue.infoVenue[0].kategori}</span><br></br>
                                     <span className="card-text text-muted" style={{ color: "black" }}><strong>Harga mulai dari </strong><br></br><span style={{ color: "green" }}>{venue.infoLapangan.length === 0 ? ('Tidak ada data lapangan tersedia') : (` Rp ${venue.infoLapangan[0].hargaPagi.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`)}</span></span>
                                 </div>
+
                             </div>
+
                             {/* END ROW */}
                         </div>
                     </div>
@@ -114,7 +123,11 @@ export default function HomeMitra({namaVenueProps}) {
             <div className='row'>
                 <a className='btn btn-fill text-white mt-3' href='/mitra/tambah-lapangan'>+ Tambah Lapangan</a>
             </div>
-
+            <div>
+                <h1>Laporan Bulan Ini</h1>
+                <h1>Total Transaksi : {venue.dashboard.length}</h1>
+                <h1>Pendapatan Bulan Ini : {total}</h1>
+            </div>
 
 
         </div>

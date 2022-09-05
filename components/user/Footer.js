@@ -16,7 +16,7 @@ const Footer = () => {
                             <a href='https://wa.me/6281235105364'>
                                 <h3> <icon className='fa fa-whatsapp' style={{ color: "orange" }} /></h3>
                             </a>
-                            <a href>
+                            <a href='https://www.facebook.com/profile.php?id=100085184779529'>
                                 <h3> <icon className='fa fa-facebook ' style={{ color: "orange" }} /></h3>
                             </a>
                         </div>
