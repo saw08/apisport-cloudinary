@@ -1,4 +1,4 @@
-//@ts-check
+
 import Head from 'next/head'
 import Image from 'next/image'
 import Helmet from 'react-helmet'
@@ -138,7 +138,6 @@ export default function Home() {
       <div>
         <div className="container my-4 text-black-50" >
           <h3 style={{ color: 'black' }} className='fw-bold fst-italic'>REKOMENDASI LAPANGAN</h3>
-          <hr></hr>
           <div className="row g-2 mt-3 p-1">
             {rekomendasi.length === 0 ? (
               <></>

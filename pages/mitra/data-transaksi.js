@@ -1,3 +1,4 @@
+
 import useSWR from 'swr'
 import Pagination from '../../components/Pagination'
 import { useState } from 'react'
@@ -31,6 +32,11 @@ export default function Datatransaksi({ namaVenueProps }) {
             return tblDat
         }
     })
+
+    let total = 0
+    for (let i = 0; i < transaksi.length; i++) {
+        total = total + transaksi[i].harga
+    }
 
     //Tambahan Pagination
     const indexOfLastPost = currentPage * postsPerPage;
@@ -108,7 +114,15 @@ export default function Datatransaksi({ namaVenueProps }) {
                                         </div>
                                         </td>
                                     </tr>
+
+
                                 ))}
+                                    <tr className='table-info'>
+                                        <td colSpan={4}></td>
+                                        <td><strong><b>TOTAL</b></strong></td>
+                                        <td>{` Rp ${total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`}</td>
+                                        <td colSpan={3}></td>
+                                    </tr>
                                 <div className='d-flex flex-row justify-content-center'>
                                     <Pagination pages={howManyPages} setCurrentPage={setCurrentPage} />
                                 </div>
