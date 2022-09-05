@@ -1,4 +1,4 @@
-Beimport React from 'react'
+import React from 'react'
 
 const CardTestimonial = () => {
     return (
@@ -10,7 +10,7 @@ const CardTestimonial = () => {
                         <img className="rounded-circle shadow-1-strong mb-4" src="/y.png" alt="avatar" style={{ width: 150 }} />
                         <div className="row d-flex justify-content-center">
                             <div className="col-lg-8">
-                                <h5 className="mb-3">yosi mugni</h5>
+                                <h5 className="mb-3"><b>yosi mugni</b></h5>
                                 <p></p>
                                 <p className="text-muted">
                                     <i className="fas fa-quote-left pe-2" />
