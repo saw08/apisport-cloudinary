@@ -318,15 +318,15 @@ export default function DetailLapangan() {
                                 </>
                             ))}
                         </div>
-                        <div className="carousel-inner">
+                        <div className="carousel-inner p-1">
                             {infoLapangan.gambar.map((data, i) => (
                                 <>
                                     {i == 0 ?
-                                        (<div className="carousel-item active">
-                                            <img src={`${data}`} className="" width={400} height={200} />
+                                        (<div className="carousel-item active ">
+                                            <img src={`${data}`} className="img-fluid" />
                                         </div>) :
                                         (<div className="carousel-item">
-                                            <img src={`${data}`} className="" width={400} height={200} />
+                                            <img src={`${data}`} className="img-fluid" />
                                         </div>)}
                                 </>
                             ))}
@@ -357,9 +357,9 @@ export default function DetailLapangan() {
             </div>
             <div className='mt-3'>
                 <form onSubmit={handlePost}>
-                    <h4 className='text-start'>Jadwal Lapangan</h4>
+                    <h4 className='text-start' style={{ color: '#EE8F00' }}>Jadwal Lapangan</h4>
                     <input type='date' id='tglMain' value={tglMain} onChange={(e) => setTglMainFunc(e.target.value)} className='form-control mb-4' required></input>
-                    <h5 style={{ color: 'red' }}><b>Hari Operasional: </b>{lapanganRes.infoVenue[0].hariOperasional} </h5>
+                    <h5 style={{ color: 'blue' }}><b>Hari Operasional: </b>{lapanganRes.infoVenue[0].hariOperasional} </h5>
                     <div className='card p-3'>
                         <div className='row' style={{ color: 'white' }}>
                             {/* THIS IS CARD */}
@@ -387,7 +387,7 @@ export default function DetailLapangan() {
                             }
                             {!available &&
                                 <>
-                                    <h4 className='text-black'>Mitra tidak beroperasi</h4>
+                                <h4 className='text-black' style={{ color: 'red' }}>Mitra tidak beroperasi</h4>
                                 </>
                             }
                             {/* {gabunganJadwal.length === 0 ? (

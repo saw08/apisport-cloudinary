@@ -19,6 +19,9 @@ const Footer = () => {
                             <a href='https://www.facebook.com/profile.php?id=100085184779529'>
                                 <h3> <icon className='fa fa-facebook ' style={{ color: "orange" }} /></h3>
                             </a>
+                            <a href='https://www.youtube.com/channel/UCsvGU4kka3NkjdRYUUixDtg'>
+                                <h3> <icon className='fa fa-youtube-play ' style={{ color: "orange" }} /></h3>
+                            </a>
                         </div>
                         <nav className="d-flex flex-lg-row flex-column align-items-center justify-content-center">
                             <p style={{ margin: 0 }}>Copyright © 2021 API SPORTS Team</p>

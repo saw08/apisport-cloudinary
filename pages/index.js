@@ -38,10 +38,10 @@ export default function Home() {
             <img src="images/11.jpg" className="d-block img-fluid w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src="images/22.png" className="d-block w-100" alt="..." />
+            <img src="images/22.png" className="d-block img-fluid w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src="images/33.png" className="d-block w-100" alt="..." />
+            <img src="images/33.png" className="d-block img-fluid w-100" alt="..." />
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -54,7 +54,7 @@ export default function Home() {
         </button>
       </div>
       <div className='container my-4'>
-        <h4 className='fw-bold fst-italic'>KATEGORI OLAHRAGA</h4>
+        <h4 className='fw-bold fst-italic' style={{ color: '#EE8F00' }}>KATEGORI OLAHRAGA</h4>
         <div className="row row-cols-4 row-cols-md-4 g-4 mt-3">
           <div className="col-3 col-lg-3">
             <Link href={{
@@ -137,8 +137,8 @@ export default function Home() {
 
       <div>
         <div className="container my-4 text-black-50" >
-          <h4 style={{ color: 'black' }} className='fw-bold fst-italic'>REKOMENDASI LAPANGAN</h4>
-          <div className="row g-2 mt-3 p-1">
+          <h4 style={{ color: '#EE8F00' }} className='fw-bold fst-italic'>REKOMENDASI LAPANGAN</h4>
+          <div className="row g-2 mt-3 p-2">
             {rekomendasi.length === 0 ? (
               <></>
             ) : (
