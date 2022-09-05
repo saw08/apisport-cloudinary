@@ -387,11 +387,11 @@ export default function DetailLapangan() {
                             }
                             {!available &&
                                 <>
-                                    <h3 className='text-black'>Mitra tidak beroperasi</h3>
+                                    <h4 className='text-black'>Mitra tidak beroperasi</h4>
                                 </>
                             }
                             {/* {gabunganJadwal.length === 0 ? (
-                                <h3>Tidak ada data Jadwal</h3>
+                                <h4>Tidak ada data Jadwal</h4>
                             ) : ( 
                                     <>
                                         
@@ -413,12 +413,12 @@ export default function DetailLapangan() {
 
 
                     <div className='row'>
-                        <h3><b>Jadwal yang akan dipesan:</b></h3>
-                        <h3>Tgl Main: {tglMain}</h3>
-                        <h3>Total Harga: {`Rp ${totalHarga.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`}</h3>
+                        <h4><b>Jadwal yang akan dipesan:</b></h4>
+                        <h4>Tgl Main: {tglMain}</h4>
+                        <h4>Total Harga: {`Rp ${totalHarga.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`}</h4>
                         <hr></hr>
                         {jadwalPesan.length === 0 ? (
-                            <h3>Tidak ada data Jadwal yang dipesan</h3>
+                            <h4>Tidak ada data Jadwal yang dipesan</h4>
                         ) : (
                             <>
 

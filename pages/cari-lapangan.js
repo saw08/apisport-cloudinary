@@ -67,11 +67,11 @@ export default function CariLapangan() {
                     </div>
                 </div>
                 <div className="container my-4 text-black-50" >
-                    <h3 style={{ color: 'black' }} className='fw-bold fst-italic'>{`Daftar Lapangan ${search}`}</h3>
+                    <h4 style={{ color: 'black' }} className='fw-bold fst-italic'>{`Daftar Lapangan ${search}`}</h4>
                     <hr></hr>
                     <div className="row justify-content-center row-cols-1 row-cols-md-3">
                         {currentPosts.length === 0 ? (
-                            <><h3>{`Tidak ada Data Lapangan dengan nama ${search} ditemukan`}</h3></>
+                            <><h4>{`Tidak ada Data Lapangan dengan nama ${search} ditemukan`}</h4></>
                         ) : (
                             <>
 

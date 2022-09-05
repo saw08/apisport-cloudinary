@@ -82,7 +82,7 @@ export default function Datatransaksi({ namaVenueProps }) {
                     </thead>
                     <tbody>
                         {transaksi.length === 0 ? (
-                            <h3>Tidak ada data</h3>
+                            <h4>Tidak ada data</h4>
                         ) : (
                             <>
                                 {currentPosts.map((data, index) => (

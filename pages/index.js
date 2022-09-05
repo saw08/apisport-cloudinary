@@ -54,7 +54,7 @@ export default function Home() {
         </button>
       </div>
       <div className='container my-4'>
-        <h3 className='fw-bold fst-italic'>KATEGORI OLAHRAGA</h3>
+        <h4 className='fw-bold fst-italic'>KATEGORI OLAHRAGA</h4>
         <div className="row row-cols-4 row-cols-md-4 g-4 mt-3">
           <div className="col-3 col-lg-3">
             <Link href={{
@@ -95,7 +95,7 @@ export default function Home() {
             }}>
               <div>
                 <img src='icons/bulutangkis.png' style={{ backgroundColor: '#432C0B' }} className="bd-placeholder-img img-fluid rounded-circle" width={120} height={120} role="img" aria-label="Placeholder: 140x140" />
-                <p className="mt-2" style={{ color: "white", backgroundColor: '#432C0B', borderRadius: "5px", fontSize: '2vh' }}>Bulu Tangkis</p>
+                <p className="mt-2" style={{ color: "white", backgroundColor: '#432C0B', borderRadius: "5px", fontSize: '1vh' }}>Bulu Tangkis</p>
               </div>
 
             </Link>
@@ -137,7 +137,7 @@ export default function Home() {
 
       <div>
         <div className="container my-4 text-black-50" >
-          <h3 style={{ color: 'black' }} className='fw-bold fst-italic'>REKOMENDASI LAPANGAN</h3>
+          <h4 style={{ color: 'black' }} className='fw-bold fst-italic'>REKOMENDASI LAPANGAN</h4>
           <div className="row g-2 mt-3 p-1">
             {rekomendasi.length === 0 ? (
               <></>
@@ -153,11 +153,11 @@ export default function Home() {
           </div>
         </div>
         <div className='container mt-4 my-4 text-black-50'>
-          <h3 style={{ color: '#EE8F00' }} className='mb-5 py-3 header-custom'>TESTIMONI</h3>
+          <h4 style={{ color: '#EE8F00' }} className='mb-5 py-3 header-custom'>TESTIMONI</h4>
             <CardTestimonial />
         </div>
         <div className='container mt-4 my-4 text-black-50'>
-          <h3 style={{ color: '#EE8F00' }} className='mb-5 header-custom'>ALUR BOOKING</h3>
+          <h4 style={{ color: '#EE8F00' }} className='mb-5 header-custom'>ALUR BOOKING</h4>
           <img src='/alur.png' className='d-block img-fluid' />
         </div>
 

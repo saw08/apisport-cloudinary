@@ -113,7 +113,7 @@ export default function Detailvenue() {
         <h5 className='d-flex justify-content-between'><b>Daftar Lapangan</b></h5>
         <div className='row flex-row col-12 col-md-12'>
           {venue.infoLapangan.length === 0 ? (
-            <h3>Tidak ada data Lapangan</h3>
+            <h4>Tidak ada data Lapangan</h4>
           ) : (
             <>
               {venue.infoLapangan.map((data, index) => (

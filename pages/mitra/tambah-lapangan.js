@@ -281,12 +281,12 @@ export default function Addlapangan() {
                 <form className='' onSubmit={handlePost}>
                     {error ? (
                         <div >
-                            <h3 >{error}</h3>
+                            <h4 >{error}</h4>
                         </div>
                     ) : null}
                     {message ? (
                         <div >
-                            <h3 >{message}</h3>
+                            <h4 >{message}</h4>
                         </div>
                     ) : null}
                     <div className="col-md-12">
@@ -321,7 +321,7 @@ export default function Addlapangan() {
                     </div>
                     <div className="mt-2 col-12 col-md-12"><label className="labels">Foto Lapangan</label>
                         {gambar.length === 0 ? (
-                            <h3>Daftar Foto</h3>
+                            <h4>Daftar Foto</h4>
                         ) : (
                             <>
 
@@ -422,7 +422,7 @@ export default function Addlapangan() {
                         <div className='row' id='divJadwal'>
 
                             {jadwalTampilan.length === 0 ? (
-                                <h3>Tampilan jadwal</h3>
+                                <h4>Tampilan jadwal</h4>
                             ) : (
                                 <>
 

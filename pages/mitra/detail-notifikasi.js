@@ -155,16 +155,16 @@ export default function DetailNotifikasi() {
                     <div className="row">
                         <div className="px-md-5 p-3 col-md-12 align-items-start justify-content-center" >
                             <h1><b>{transaksi.namaVenue}</b></h1>
-                            <h3 ><b>Lapangan:</b>&nbsp;{transaksi.lapangan}</h3>
+                            <h4 ><b>Lapangan:</b>&nbsp;{transaksi.lapangan}</h4>
                             <h4><b>Tgl Main:</b>&nbsp;{transaksi.tglMain}</h4><br></br>
                             <div className="row">
-                                <h3><b>Jadwal Main:</b></h3>
+                                <h4><b>Jadwal Main:</b></h4>
                                 {transaksi.jadwalMain.map((data, i) => (
                                     <>
                                         <div className='col-12 col-sm-4 mb-2'>
                                             <div className='card'>
                                                 <div className='card-body'>
-                                                    <h3>{data}</h3>
+                                                    <h4>{data}</h4>
                                                 </div>
                                             </div>
                                         </div>

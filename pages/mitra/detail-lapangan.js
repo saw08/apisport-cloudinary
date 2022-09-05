@@ -380,11 +380,11 @@ export default function DetailLapangan() {
                             }
                             {!available &&
                                 <>
-                                    <h3 className='text-black'>Mitra tidak beroperasi</h3>
+                                    <h4 className='text-black'>Mitra tidak beroperasi</h4>
                                 </>
                             }
                             {/* {gabunganJadwal.length === 0 ? (
-                                <h3>Tidak ada data Jadwal</h3>
+                                <h4>Tidak ada data Jadwal</h4>
                             ) : ( 
                                     <>
                                         

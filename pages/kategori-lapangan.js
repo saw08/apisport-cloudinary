@@ -83,7 +83,7 @@ export default function KategoriLapangan() {
                 </button>
             </div>
             <div className='container my-4'>
-                <h3 className='fw-bold fst-italic'>KATEGORI OLAHRAGA</h3>
+                <h4 className='fw-bold fst-italic'>KATEGORI OLAHRAGA</h4>
                 <div className="row row-cols-4 row-cols-md-4 g-4 mt-3">
                     <div className="col-3 col-lg-3">
                         <Link href={{
@@ -182,11 +182,11 @@ export default function KategoriLapangan() {
             </div>
             <div>
                 <div className="container my-4 text-black-50" >
-                    <h3 style={{ color: 'black' }} className='fw-bold fst-italic'>{`Daftar Lapangan ${kategori}`}</h3>
+                    <h4 style={{ color: 'black' }} className='fw-bold fst-italic'>{`Daftar Lapangan ${kategori}`}</h4>
                     <hr></hr>
                     <div className="row justify-content-center row-cols-1 row-cols-md-3">
                         {currentPosts.length === 0 ? (
-                            <><h3>{`Tidak ada Data Lapangan ${kategori} ditemukan`}</h3></>
+                            <><h4>{`Tidak ada Data Lapangan ${kategori} ditemukan`}</h4></>
                         ) : (
                             <>
 
