@@ -36,6 +36,7 @@ export default function Pembayaran() {
   const [status, setStatus] = useState('pending');
   const [error1, setError1] = useState('')
   const [stateDummy, setStateDummy] = useState('')
+  const [uploading, setUploading] = useState(false)
 
   // Backup State
   // const [nama, setNama] = useState('Yosi');
@@ -135,6 +136,7 @@ export default function Pembayaran() {
 
     //Cloudinary Single
     let imageUrl = ''
+    setUploading(true)
     const body = new FormData();
     //console.log("file", image)
     body.append("file", image);
@@ -144,6 +146,9 @@ export default function Pembayaran() {
       body
     }).then(r => r.json());
     imageUrl = response.secure_url
+    if (imageUrl != '') {
+      setUploading(false)
+    }
 
     //Cloudinary End
     console.log(buktiBayar)
@@ -345,7 +350,12 @@ export default function Pembayaran() {
               <span className='font-weight-normal' style={{ color: 'red' }}><b>*Mohon untuk mengupload bukti pembayaran hingga 13:30 WIB atau pembayaran akan di cancel</b></span>
             </div> */}
             <div className="d-grid gap-2 py-4 ">
-              <button className="btn btn-primary p-3 fw-bold" type="submit" style={{ backgroundColor: '#006E61' }}>Kirim</button>
+              <button className="btn btn-primary p-3 fw-bold" type="submit" style={{ backgroundColor: '#006E61' }} disabled={uploading === false ? (false) : (true)} >Kirim</button>
+              {uploading &&
+                <>
+                <div className="spinner"></div>
+                </>
+              }
             </div>
           </form>
         </div>
