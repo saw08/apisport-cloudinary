@@ -38,7 +38,7 @@ export default function Register() {
               
               <div className="flex-c-m">
                 {!session && <a href="#" onClick={handleSigninUser} className="btn btn-primary p-3">
-                  <i className="fa fa-google" /> &nbsp; &nbsp; &nbsp; Register dengan Google
+                  <i className="fa fa-google" /> &nbsp; &nbsp; &nbsp; Daftar dengan Google
 
                 </a>}
                 {session &&
@@ -54,7 +54,7 @@ export default function Register() {
               <div className='mt-2 col-md-12 text-center' style={{ color: 'red' }}>
                 <div className="flex-c-m">
                     <a href="#" className="btn btn-success text-white p-3" onClick={handleSigninMitra}>
-                    <i className="fa fa-address-card" /> &nbsp; &nbsp; &nbsp; Register sebagai Mitra
+                    <i className="fa fa-address-card" /> &nbsp; &nbsp; &nbsp; Daftar sebagai Mitra
                   </a>
                 </div>
               </div>
