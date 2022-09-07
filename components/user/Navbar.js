@@ -99,7 +99,7 @@ const Navbar = () => {
                                 {!session &&
                                     <>
                                         <button onClick={handleLogin} style={{ backgroundColor: '#006E61' }} className="btn m-2 text-white btn-default te btn-fill">Masuk</button>
-                                    <Link onClick={() => { window.location.href = '/register'; }}><button className="btn btn-fill text-white">Daftar</button></Link>
+                                    <a onClick={() => { window.location.href = '/register'; }}><button className="btn btn-fill text-white">Daftar</button></a>
                                     </>
                                 }
 
@@ -155,7 +155,7 @@ const Navbar = () => {
                         {!session &&
                             <>
                                 <button onClick={handleLogin} style={{ backgroundColor: '#006E61' }} className="m-2 text-white btn btn-default btn-no-fill"><strong>Masuk</strong></button>
-                            <Link onClick={() => { window.location.href = '/register'; }}><button className="btn btn-fill text-white">Daftar</button></Link>
+                            <a onClick={() => { window.location.href = '/register'; }}><button className="btn btn-fill text-white">Daftar</button></a>
                           
                             </>
                         }

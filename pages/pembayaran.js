@@ -309,21 +309,20 @@ export default function Pembayaran() {
                 <input type="text" className="form-control" value={`Rp ${hargaDP.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`} readOnly />
               </div>
             }
-            
-            <div className="form-group">
-              <label htmlFor="exampleFormControlSelect1">No. Rekening</label>
-              <select className="form-control form-select" id="exampleFormControlSelect1" onChange={(e) => setNoRekening(e.target.value)}>
-                <option>--Pilih No. Rekening--</option>
-                {profil.infoVenue[0].rekening.map((data, i) => (
-                  <option value={data}>{data}</option>
-                ))}
-              </select>
-            </div>
             <div className="form-group">
               <label>Opsi Bayar</label>
               <select className=" form-select" onChange={(e) => aturOpsiBayar(e.target.value)}>
                 <option>--Pilih Opsi Bayar--</option>
                 {profil.infoVenue[0].opsiBayar.map((data, i) => (
+                  <option value={data}>{data}</option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlSelect1">No. Rekening</label>
+              <select className="form-control form-select" id="exampleFormControlSelect1" onChange={(e) => setNoRekening(e.target.value)}>
+                <option>--Pilih No. Rekening--</option>
+                {profil.infoVenue[0].rekening.map((data, i) => (
                   <option value={data}>{data}</option>
                 ))}
               </select>

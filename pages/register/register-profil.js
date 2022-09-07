@@ -235,6 +235,9 @@ export default function Userregister() {
                                                 <span className="check" />
                                             </div>
                                         </div>
+                                        <div className="mt-2 col-md-12">
+                                            <label className="labels">Nama Tim</label>
+                                        </div>
                                         <div className="btn-group col-md-12">
                                             <input type="text" className="form-control col-12 mt-2 col-md-12"
                                                 id="tim"
@@ -245,7 +248,7 @@ export default function Userregister() {
                                             {/* <button className="form-control col-2 mt-2 col-sm-2" type='button'>
                                                 <i className="fa fa-plus"></i></button> */}
                                         </div>
-                                        <div className="mt-3 col-md-12"><label className="labels">Daftar Tim</label>
+                                        {/* <div className="mt-3 col-md-12"><label className="labels">Daftar Tim</label>
                                         </div>
                                         <div>
                                             {tim.length === 0 ? (
@@ -265,7 +268,7 @@ export default function Userregister() {
                                                 </>
                                             )}
 
-                                        </div>
+                                        </div> */}
 
                                         <div className="mt-2 col-md-12"><label className="labels">No . WhatsApp</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                             <input type="text" className="form-control" required
@@ -297,9 +300,7 @@ export default function Userregister() {
                                                 readOnly
                                             />
                                         </div>
-                                        <div className="mt-2 col-md-12">
-                                            <label className="labels">Tambah Tim</label>
-                                        </div>
+                                        
                                         
                                         <div className="mt-2 col-md-12"><label className="labels" htmlFor="formFile">Foto Profil</label>
                                             <img className='img-fluid d-block  rounded-circle' id='image' src={session.user.image} />
