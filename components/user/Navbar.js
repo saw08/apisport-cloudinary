@@ -98,8 +98,10 @@ const Navbar = () => {
                                 }
                                 {!session &&
                                     <>
-                                    <button onClick={handleLogin} style={{ backgroundColor: '#006E61'}} className="btn btn-default btn-no-fill">Log In</button>
+                                    <div className='text-center'>
+                                    <button onClick={handleLogin} style={{ backgroundColor: '#006E61' }} className="btn text-white btn-default te btn-fill">Log In</button>
                                         <Link href='/register'><button className="btn btn-fill text-white">Register</button></Link>
+                                    </div>
                                     </>
                                 }
 
@@ -154,8 +156,10 @@ const Navbar = () => {
                         }
                         {!session &&
                             <>
-                            <button onClick={handleLogin} style={{ backgroundColor: '#006E61' }} className=" text-white btn btn-default btn-no-fill"><strong>Log In</strong></button>
+                            <div className='text-center'>
+                                <button onClick={handleLogin} style={{ backgroundColor: '#006E61' }} className=" text-white btn btn-default btn-no-fill"><strong>Log In</strong></button>
                                 <Link href='/register'><button className="btn btn-fill text-white">Register</button></Link>
+                            </div>
                             </>
                         }
 
