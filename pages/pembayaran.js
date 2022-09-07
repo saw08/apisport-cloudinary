@@ -151,7 +151,7 @@ export default function Pembayaran() {
     // reset error and message
     setMessage('');
     // fields check
-    if (!nama || !email || !noWa || !tim || !noRekening || !opsiBayar || !buktiBayar || !namaVenue || !tglMain || !jadwalMain || !harga || !status || !hargaDP || !diterima) {
+    if (!nama || !email || !noWa || !noRekening || !opsiBayar || !buktiBayar || !namaVenue || !tglMain || !jadwalMain || !harga || !status || !hargaDP || !diterima) {
       alert('Tolong isi semua kolom')
       return setError1('All fields are required');
     }
@@ -281,6 +281,14 @@ export default function Pembayaran() {
               <input value={email} type="text" className="form-control" readOnly />
             </div>
             <div className="form-group">
+              <label htmlFor="exampleFormControlInput1">No. WA Pemesan: </label>
+              <input type="number" className="form-control" value={noWa} readOnly />
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlInput1">Total Bayar : </label>
+              <input type="text" className="form-control" value={`Rp ${harga.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`} readOnly />
+            </div>
+            <div className="form-group">
               <label htmlFor="exampleFormControlSelect1">Nama Tim</label>
               <select className="form-control form-select" id="exampleFormControlSelect1" onChange={(e) => setTim(e.target.value)}>
                 <option>--Pilih Tim--</option>
@@ -288,14 +296,6 @@ export default function Pembayaran() {
                   <option value={data}>{data}</option>
                 ))}
               </select>
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleFormControlInput1">No. WA Pemesan: </label>
-              <input type="number" className="form-control" value={noWa} readOnly />
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleFormControlInput1">Total Bayar : </label>
-              <input type="text" className="form-control" value={`Rp ${harga.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`} readOnly />
             </div>
             {opsiBayarDP &&
               <div className="form-group">

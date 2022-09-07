@@ -235,8 +235,41 @@ export default function Userregister() {
                                                 <span className="check" />
                                             </div>
                                         </div>
+                                        <div className="btn-group col-md-12">
+                                            <input type="text" className="form-control col-12 mt-2 col-md-12"
+                                                id="tim"
+                                                name="tim"
+                                                value={timTemp}
+                                                onChange={(e) => setTimTemp(e.target.value)}
+                                            />
+                                            {/* <button className="form-control col-2 mt-2 col-sm-2" type='button'>
+                                                <i className="fa fa-plus"></i></button> */}
+                                        </div>
+                                        <div className="mt-3 col-md-12"><label className="labels">Daftar Tim</label>
+                                        </div>
+                                        <div>
+                                            {tim.length === 0 ? (
+                                                <h6>Isi Daftar Tim</h6>
+                                            ) : (
+                                                <>
+
+                                                    {tim.map((data, i) => (
+                                                        <div className="btn-group col-md-12">
+                                                            <input type="text" id={i} className="form-control col-10 mt-2 col-md-10" value={data} readOnly />
+                                                            <button className="form-control col-2 mt-2 col-sm-2" type='button'
+                                                               onClick={() => removeItemArray(data)}
+                                                            >
+                                                                <i className="fa fa-trash"></i></button>
+                                                        </div>
+                                                    ))}
+                                                </>
+                                            )}
+
+                                        </div>
+
                                         <div className="mt-2 col-md-12"><label className="labels">No . WhatsApp</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                             <input type="text" className="form-control" required
+                                            
                                                 name="noWa"
                                                 onChange={(e) => setNoWa(e.target.value)}
                                                 value={noWa}
@@ -267,38 +300,7 @@ export default function Userregister() {
                                         <div className="mt-2 col-md-12">
                                             <label className="labels">Tambah Tim</label>
                                         </div>
-                                        <div className="btn-group col-md-12">
-                                            <input type="text" className="form-control col-10 mt-2 col-md-10"
-                                                id="tim"
-                                                name="tim"
-                                                value={timTemp}
-                                                onChange={(e) => setTimTemp(e.target.value)}
-                                            />
-                                            <button className="form-control col-2 mt-2 col-sm-2" type='button'
-                                                onClick={onAddItemArray}><i className="fa fa-plus"></i></button>
-                                        </div>
-                                        <div className="mt-3 col-md-12"><label className="labels">Daftar Tim</label>
-                                        </div>
-                                        <div>
-                                            {tim.length === 0 ? (
-                                                <h2>Isi Daftar Tim</h2>
-                                            ) : (
-                                                <>
-
-                                                    {tim.map((data, i) => (
-                                                        <div className="btn-group col-md-12">
-                                                            <input type="text" id={i} className="form-control col-10 mt-2 col-md-10" value={data} readOnly />
-                                                            <button className="form-control col-2 mt-2 col-sm-2" type='button'
-                                                                onClick={() => removeItemArray(data)}
-                                                            >
-                                                                <i className="fa fa-trash"></i></button>
-                                                        </div>
-                                                    ))}
-                                                </>
-                                            )}
-
-                                        </div>
-
+                                        
                                         <div className="mt-2 col-md-12"><label className="labels" htmlFor="formFile">Foto Profil</label>
                                             <img className='img-fluid d-block  rounded-circle' id='image' src={session.user.image} />
 
@@ -310,6 +312,7 @@ export default function Userregister() {
                                     </div>
                                     <div class="row mt-3 container-login100-form-btn my-3">
                                         <button type="submit"
+                                            onClick={onAddItemArray}
                                             className="btn btn-outline-secondary" style={{ backgroundColor: '#006E61', color: 'rgb(255, 255, 255)', borderRadius: '5cm', width: 500, height: 50 }}>
                                             SIMPAN PROFIL
                                         </button>

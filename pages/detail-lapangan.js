@@ -318,7 +318,7 @@ export default function DetailLapangan() {
                                 </>
                             ))}
                         </div>
-                        <div className="carousel-inner p-1">
+                        <div className="carousel-inner row p-1 col-12">
                             {infoLapangan.gambar.map((data, i) => (
                                 <>
                                     {i == 0 ?

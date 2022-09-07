@@ -17,13 +17,13 @@ export default function CardLapangan({props}) {
     }
 
     return (
-        <div className='mt-3'>
+        <div className='col-12 col-md-6 col-sm-12 mt-3'>
             
                 <div className="card border-0 shadow-sm">
                     <div className="card-body rounded p-3">
                         {/* ROW CONTENT */}
-                        <div className="row">
-                            <div className="col-md-4">
+                    <div className="">
+                        <div className="  col-md-4">
                             {/* SLIDER */}
                             <div id={`${namaHasil}`} className="carousel slide" data-bs-ride="carousel">
                                 <div className="carousel-indicators">
@@ -76,7 +76,7 @@ export default function CardLapangan({props}) {
 
                                 {/* END SLIDER */}
                             </div>
-                            <div className="col-lg-8 p-2 ">
+                        {/* <div className="col-lg-8 p-2 ">
                             <div className='row' >
                                 {gabunganJadwal.length === 0 ? (
                                     <h2>Tidak ada data</h2>
@@ -87,7 +87,7 @@ export default function CardLapangan({props}) {
                                                 <div className='card p-1'>
                                                     <div style={{ color: "black",fontSize:"12px"}}>
                                                         <span>{data}</span><br />
-                                                        {/* <span>Rp {gabunganHarga[index].toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")} </span> */}
+                                                        <span>Rp {gabunganHarga[index].toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")} </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -95,7 +95,7 @@ export default function CardLapangan({props}) {
                                     </>
                                 )}
                             </div>
-                            </div>
+                            </div> */}
                         </div>
                         {/* END ROW */}
                     </div>
