@@ -32,6 +32,11 @@ export default function MitraRegister() {
   const [createObjectURL, setCreateObjectURL] = useState([]);
   const [message, setMessage] = useState('');
 
+  //uploading
+  const [uploading, setUploading] = useState(false)
+
+
+
   let router = useRouter()
 
   const fetcher = (...args) => fetch(...args).then((res) => res.json())
@@ -61,7 +66,9 @@ export default function MitraRegister() {
     //Cloudinary ADD
     const body = new FormData();
     let imageUrl = []
-
+    //Uploading
+    setUploading(true)
+    //Uploading
     body.append('upload_preset', 'my-uploads');
     //console.log("file", image)
     for (let i = 0; i < image.length; i++) {
@@ -78,6 +85,12 @@ export default function MitraRegister() {
       // console.log(imageUrl)
     }
     setFotoVenue(Object.assign(fotoVenue, imageUrl))
+    //Uploading
+    if (imageUrl.length = 0) {
+      setUploading(false)
+    }
+    //Uploading
+
         // console.log('Secure URL State')
         // console.log(gambar)
         //Cloudinary END
@@ -89,8 +102,8 @@ export default function MitraRegister() {
     // reset error and message
     setMessage('');
     // fields check
-    if (!namaVenue || !namaPemilikVenue || !alamat || !noWa || !instagram || !kategori || !hariOperasional ||
-      !jamOperasional || !fasilitas || !opsiBayar || !rekening || !namaAdmin || !noWaAdmin || !fotoVenue || !email) {
+    if (!namaVenue || !namaPemilikVenue || !alamat || !noWa || !kategori || !hariOperasional ||
+      !jamOperasional || !opsiBayar || !rekening || !namaAdmin || !noWaAdmin || !fotoVenue || !email) {
       return alert('Harap untuk mengisi semua data');
     }
 
@@ -277,7 +290,7 @@ export default function MitraRegister() {
                     </div>
                     <div className="mt-2 col-md-12"><label className="labels">No . WhatsApp Venue</label>
                       <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
-                      <input type="text"
+                      <input type="number"
                         className="form-control"
 
                         value={noWa}
@@ -440,7 +453,6 @@ export default function MitraRegister() {
                       <textarea class="form-control"
                         id="exampleFormControlTextarea1"
                         rows="3"
-                        required
                         value={fasilitas}
                         onChange={(e) => setFasilitas(e.target.value)}></textarea>
                     </div>
@@ -492,7 +504,7 @@ export default function MitraRegister() {
                     </div>
                     <div className="mt-1 col-md-12">
                       <label className="labels">No. Whatsapp Admin</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
-                      <input type="text" className="form-control"
+                      <input type="number" className="form-control"
                         value={noWaAdmin}
                         onChange={(e) => setNoWaAdmin(e.target.value)}
                         required />
@@ -518,7 +530,16 @@ export default function MitraRegister() {
                   </div>
                   <div className="container-login100-form-btn my-3">
                     <button type="submit"
-                      className="btn btn-outline-secondary" style={{ backgroundColor: '#006E61', color: 'rgb(255, 255, 255)', borderRadius: '5cm', width: 500, height: 50 }}>DAFTAR</button>
+                      className="btn btn-outline-secondary" style={{ backgroundColor: '#006E61', color: 'rgb(255, 255, 255)', borderRadius: '5cm', width: 500, height: 50 }} disabled={uploading === false ? (false) : (true)} >DAFTAR</button>
+                    {uploading &&
+                      <>
+                        <div className='d-flex flex-row'>
+                          <div className="spinner-loading">
+                          </div>
+                          <span>Sedang upload gambar, Mohon Tunggu...</span>
+                        </div>
+                      </>
+                    }
                   </div>
                   <div className="flex-col-c mt-3">
                     <span className="txt1 p-b-10">

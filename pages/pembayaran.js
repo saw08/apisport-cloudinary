@@ -136,7 +136,9 @@ export default function Pembayaran() {
 
     //Cloudinary Single
     let imageUrl = ''
+    //Uploading
     setUploading(true)
+    //Uploading
     const body = new FormData();
     //console.log("file", image)
     body.append("file", image);
@@ -146,9 +148,11 @@ export default function Pembayaran() {
       body
     }).then(r => r.json());
     imageUrl = response.secure_url
+    //Uploading
     if (imageUrl != '') {
       setUploading(false)
     }
+    //Uploading
 
     //Cloudinary End
     console.log(buktiBayar)
@@ -353,7 +357,11 @@ export default function Pembayaran() {
               <button className="btn btn-primary p-3 fw-bold" type="submit" style={{ backgroundColor: '#006E61' }} disabled={uploading === false ? (false) : (true)} >Kirim</button>
               {uploading &&
                 <>
-                <div className="spinner"></div>
+                <div className='d-flex flex-row'>
+                  <div className="spinner-loading">
+                  </div>
+                  <span>Sedang upload gambar, Mohon Tunggu...</span>
+                </div>
                 </>
               }
             </div>

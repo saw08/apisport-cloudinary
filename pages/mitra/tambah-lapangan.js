@@ -26,7 +26,8 @@ export default function Addlapangan() {
     const [message, setMessage] = useState('');
 
     //Tambahan Variabel CLoudinary
-    
+    //uploading
+    const [uploading, setUploading] = useState(false)
 
     let router = useRouter()
 
@@ -57,6 +58,9 @@ export default function Addlapangan() {
         //Cloudinary ADD
         const body = new FormData();
         let imageUrl = []
+        //Uploading
+        setUploading(true)
+        //Uploading
 
         body.append('upload_preset', 'my-uploads');
         //console.log("file", image)
@@ -74,6 +78,12 @@ export default function Addlapangan() {
             // console.log(imageUrl)
         }
         setGambar(Object.assign(gambar, imageUrl))
+        //Uploading
+        if (imageUrl.length = 0) {
+            setUploading(false)
+        }
+        //Uploading
+        
         // console.log('Secure URL State')
         // console.log(gambar)
 
@@ -83,7 +93,7 @@ export default function Addlapangan() {
         setError('');
         setMessage('');
         // fields check
-        if (!namaVenue || !namaLapangan || !deskripsi || !gambar || !jadwalPagi || !jadwalMalam || !hargaPagi || !hargaMalam) {
+        if (!namaVenue || !namaLapangan || !deskripsi || !gambar || !jadwalPagi || !hargaPagi) {
             alert('Harap untuk mengisi semua data');
             return setError('All fields are required');
         }
@@ -385,14 +395,14 @@ export default function Addlapangan() {
                                 <div className='col-3 col-lg-3 mb-2'>
                                     <input type="time" className="form-control "
                                         id='jamMalamMulai'
-                                        placeholder="Mulai" required /></div>
+                                        placeholder="Mulai" /></div>
                                 <div className='col-1 col-lg-1 mb-2 text-center'>
                                     <strong>_</strong>
                                 </div>
                                 <div className='col-3 col-lg-3 mb-2'>
                                     <input type="time"
                                         id='jamMalamAkhir'
-                                        className="form-control" placeholder="Akhir" required />
+                                        className="form-control" placeholder="Akhir" />
                                 </div>
                                 <div className='col-5 col-lg-5 mb-2'>
                                     <div className='d-flex flex-row'>
@@ -404,7 +414,7 @@ export default function Addlapangan() {
                                                 placeholder="Harga Malam"
                                                 value={hargaMalam}
                                                 onChange={(e) => setHargaMalam(e.target.value)}
-                                                required />
+                                            />
                                         </div>
 
                                     </div>
@@ -443,7 +453,20 @@ export default function Addlapangan() {
                                                 borderRadius: '5cm', width: 500, height: 50
                                             }}
                                         >SIMPAN</button>
-                                    </div>
+
+                                        </div>
+                                        <div className='container d-flex flex-row justify-content-center mt-2 mb-2'>
+                                            {uploading &&
+                                                <>
+                                                    <div className='d-flex flex-row'>
+                                                        <div className="spinner-loading">
+                                                        </div>
+                                                        <span>Sedang upload gambar, Mohon Tunggu...</span>
+                                                    </div>
+                                                </>
+                                            }
+                                        </div>
+
                                 </>
                             )}
 
