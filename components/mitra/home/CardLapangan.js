@@ -100,7 +100,8 @@ export default function CardLapangan({ props }) {
                                             jadwalPagi: JSON.stringify(props.jadwalPagi),
                                             jadwalMalam: JSON.stringify(props.jadwalMalam),
                                             hargaPagi: props.hargaPagi,
-                                            hargaMalam: props.hargaMalam
+                                            hargaMalam: props.hargaMalam,
+                                            minOrder: props.minOrder
                                         }
                                     }} >
                                         <button className='btn btn-success text-white p-2' style={{ backgroundColor: '#00cc36', color: 'rgb(255, 255, 255)' }}>
@@ -133,6 +134,12 @@ export default function CardLapangan({ props }) {
                                         <icon className='fa fa-trash'></icon >&nbsp;Hapus Lapangan
                                     </button>
                                 </div>
+                            </div>
+                            <div className="d-flex flex-row justify-content-evenly">
+                                <span>
+                                    {props.minOrder === true ? ('Minimal Pemesanan 2 Jam'):('Tidak ada Minimal Pemesanan')}
+                                </span>
+                                
                             </div>
 
                         </div>

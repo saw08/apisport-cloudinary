@@ -12,7 +12,8 @@ export default function Updetlapangan() {
         jadwalPagi,
         jadwalMalam,
         hargaPagi,
-        hargaMalam } = router.query
+        hargaMalam,
+        minOrder } = router.query
     const [_namaVenue, setNamaVenue] = useState('');
     const [_namaLapangan, setNamaLapangan] = useState('');
     const [_deskripsi, setDeskripsi] = useState('');
@@ -24,10 +25,14 @@ export default function Updetlapangan() {
     const [_hargaMalam, setHargaMalam] = useState(hargaMalam);
     const [_gambar, setGambar] = useState([]);
     const [_gambarNew, setGambarNew] = useState([]);
+    const [_minOrder, setMinOrder] = useState(false)
     const [image, setImage] = useState([]);
     const [createObjectURL, setCreateObjectURL] = useState([]);
     const [error, setError] = useState('');
     const [message, setMessage] = useState('');
+
+    //uploading
+    const [uploading, setUploading] = useState(false)
 
 
 
@@ -54,6 +59,12 @@ export default function Updetlapangan() {
         if (typeof jadwalMalam == 'string') {
             setJadwalMalam(Object.assign(_jadwalMalam, JSON.parse(jadwalMalam)))
         }
+        if (typeof minOrder == 'string') {
+            setMinOrder(minOrder)
+            if (minOrder == 'true') {
+                document.getElementById('minOrderCheck').checked = true
+            }
+        }
         lihatJadwalOtomatis()
         console.log(_jadwalMalam)
     }, [namaVenue,
@@ -63,10 +74,14 @@ export default function Updetlapangan() {
         jadwalPagi,
         jadwalMalam,
         hargaPagi,
-        hargaMalam,])
+        hargaMalam,
+        minOrder
+    ])
 
     const handlePost = async (e) => {
         e.preventDefault();
+        setCheck();
+        setUploading(true)
 
         //Cloudinary Update
         const body = new FormData();
@@ -91,9 +106,15 @@ export default function Updetlapangan() {
         for (let i = 0; i < _gambar.length; i++){
             imageUrl.push(_gambar[i])
         }
+        setGambar(Object.assign(_gambar, imageUrl))
+        //Uploading
+        if (imageUrl.length != 0) {
+            setUploading(false)
+        }
+        //Uploading
         // console.log('Image URL')
         // console.log(imageUrl)
-        setGambar(Object.assign(_gambar, imageUrl))
+
         // console.log('Secure URL State')
         // console.log(gambar)
 
@@ -119,7 +140,8 @@ export default function Updetlapangan() {
                     jadwalPagi: _jadwalPagi,
                     jadwalMalam: _jadwalMalam,
                     hargaPagi: _hargaPagi,
-                    hargaMalam: _hargaMalam
+                    hargaMalam: _hargaMalam,
+                    minOrder: _minOrder
                 }),
             });
             // reload the page
@@ -134,6 +156,23 @@ export default function Updetlapangan() {
 
 
     };
+
+    const setCheck = () => {
+        let orderMin = false
+        let checkbox = document.getElementById('minOrderCheck')
+        if (checkbox.checked) {
+            setMinOrder(true)
+            orderMin = true
+            console.log(orderMin)
+            console.log(minOrder)
+        } else {
+            setMinOrder(false)
+            orderMin = false
+            console.log(orderMin)
+            console.log(minOrder)
+        }
+    };
+
     const bagiJamPagi = () => {
         let pagiMulai = parseInt(document.getElementById('jamPagiMulai').value);
         let pagiAkhir = parseInt(document.getElementById('jamPagiAkhir').value);
@@ -500,7 +539,11 @@ export default function Updetlapangan() {
                                 </div>
                             </div>
                             <div className='d-flex-end flex-row justify-content-end mt-3'>
-                                <input type='button' className='btn-fill text-white' onClick={lihatJadwal} value='CEKJADWAL' />
+                                <input type='checkbox' value={'true'} id='minOrderCheck' onClick={setCheck} />
+                                <label>Minimum Pesan 2 Jam</label>
+                            </div>
+                            <div className='d-flex-end flex-row justify-content-end mt-3'>
+                                <input type='button' className='btn-fill text-white' onClick={lihatJadwal} value='CEK JADWAL' />
                             </div>
 
                         </div>
@@ -531,8 +574,20 @@ export default function Updetlapangan() {
                                                 backgroundColor: '#006E61', color: 'rgb(255, 255, 255)',
                                                 borderRadius: '5cm', width: 500, height: 50
                                             }}
+                                                disabled={uploading === false ? (false) : (true)}
                                         >UPDATE</button>
-                                    </div>
+                                        </div>
+                                        <div className='container d-flex flex-row justify-content-center mt-2 mb-2'>
+                                            {uploading &&
+                                                <>
+                                                    <div className='d-flex flex-row'>
+                                                        <div className="spinner-loading">
+                                                        </div>
+                                                        <span>Sedang upload gambar, Mohon Tunggu...</span>
+                                                    </div>
+                                                </>
+                                            }
+                                        </div>
                                 </>
                             )}
 

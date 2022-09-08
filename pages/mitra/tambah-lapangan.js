@@ -15,7 +15,6 @@ export default function Addlapangan() {
     const [hargaTampilan, setHargaTampilan] = useState([]);
     const [hargaPagi, setHargaPagi] = useState(0);
     const [hargaMalam, setHargaMalam] = useState(0);
-    const [dataMain, setDataMain] = useState({});
 
     //Gambar
     const [gambar, setGambar] = useState([]);
@@ -24,10 +23,12 @@ export default function Addlapangan() {
     const [createObjectURL, setCreateObjectURL] = useState([]);
     const [error1, setError] = useState('');
     const [message, setMessage] = useState('');
+    const [minOrder, setMinOrder] = useState(false)
 
     //Tambahan Variabel CLoudinary
     //uploading
     const [uploading, setUploading] = useState(false)
+
 
     let router = useRouter()
 
@@ -54,7 +55,7 @@ export default function Addlapangan() {
 
     const handlePost = async (e) => {
         e.preventDefault();
-
+        setCheck();
         //Cloudinary ADD
         const body = new FormData();
         let imageUrl = []
@@ -79,7 +80,7 @@ export default function Addlapangan() {
         }
         setGambar(Object.assign(gambar, imageUrl))
         //Uploading
-        if (imageUrl.length = 0) {
+        if (imageUrl.length != 0) {
             setUploading(false)
         }
         //Uploading
@@ -109,7 +110,7 @@ export default function Addlapangan() {
             jadwalMalam,
             hargaPagi,
             hargaMalam,
-            dataMain
+            minOrder
         };
         // save the post
         let response = await fetch('/api/lapangandb', {
@@ -237,6 +238,22 @@ export default function Addlapangan() {
 
         return gabunganHarga
     }
+
+    const setCheck = () => {
+        let orderMin = false
+        let checkbox = document.getElementById('minOrderCheck')
+        if (checkbox.checked) {
+            setMinOrder(true)
+            orderMin = true
+            console.log(orderMin)
+            console.log(minOrder)
+        } else {
+            setMinOrder(false)
+            orderMin = false
+            console.log(orderMin)
+            console.log(minOrder)
+        }
+    };
 
     const lihatJadwal = () => {
 
@@ -421,7 +438,11 @@ export default function Addlapangan() {
                                 </div>
                             </div>
                             <div className='d-flex-end flex-row justify-content-end mt-3'>
-                                <input type='button' className='btn-fill text-white' onClick={lihatJadwal} value='CEKJADWAL' />
+                                <input type='checkbox' value={'true'} id='minOrderCheck' onClick={setCheck} />
+                                <label>Minimum Pesan 2 Jam</label>
+                            </div>
+                            <div className='d-flex-end flex-row justify-content-end mt-3'>
+                                <input type='button' className='btn-fill text-white' onClick={lihatJadwal} value='CEK JADWAL' />
                             </div>
 
                         </div>
@@ -452,6 +473,7 @@ export default function Addlapangan() {
                                                 backgroundColor: '#006E61', color: 'rgb(255, 255, 255)',
                                                 borderRadius: '5cm', width: 500, height: 50
                                             }}
+                                                disabled={uploading === false ? (false) : (true)}
                                         >SIMPAN</button>
 
                                         </div>

@@ -54,7 +54,8 @@ async function updateLapangan(req, res) {
         jadwalPagi,
         jadwalMalam,
         hargaPagi,
-        hargaMalam } = req.body
+        hargaMalam,
+        minOrder } = req.body
     try {
         // connect to the database
         let { db } = await connectToDatabase();
@@ -72,7 +73,8 @@ async function updateLapangan(req, res) {
                     'jadwalPagi': jadwalPagi,
                     'jadwalMalam': jadwalMalam,
                     'hargaPagi': hargaPagi,
-                    'hargaMalam': hargaMalam
+                    'hargaMalam': hargaMalam,
+                    'minOrder': minOrder
                 }
             }
         );
