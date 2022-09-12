@@ -1,117 +1,33 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link'
+import useSWR from "swr";
+import { useSession, signIn } from 'next-auth/react'
 
-export default function DetailMitra() {
-    let router = useRouter()
-    const { namaVenue,
-        namaPemilikVenue,
-        alamat,
-        noWa,
-        instagram,
-        kategori,
-        hariOperasional,
-        jamOperasional,
-        fasilitas,
-        opsiBayarStringify,
-        rekeningStringify,
-        DP,
-        namaAdmin,
-        noWaAdmin,
-        emailReq,
-        fotoVenueStringify,
-        objectId } = router.query
-
-    const [error, setError] = useState('');
-    const [message, setMessage] = useState('');
-
-    let opsiBayar = []
-    let rekening = []
-    let fotoVenue = []
-
-    if (opsiBayarStringify && rekeningStringify && fotoVenueStringify) {
-        opsiBayar = JSON.parse(opsiBayarStringify)
-        rekening = JSON.parse(rekeningStringify)
-        fotoVenue = JSON.parse(fotoVenueStringify)
+export default function ProfilMitra({ namaVenueProps }) {
+    //Suwir
+    const fetcher = (...args) => fetch(...args).then((res) => res.json())
+    const { data: data, error } = useSWR(`/api/profilmitradb?namaVenueReq=${namaVenueProps}`, fetcher, { refreshInterval: 1000 })
+    const { data: session } = useSession();
+    if (!data) {
+        return <div className="spinner"></div>
+    } else if (error) {
+        return <div>Something went wrong</div>
     }
-    let email = emailReq
+    let mitra = data['message'][0]
+    let email = session.user.email
 
-    const deleteMitra = async () => {
-        try {
-            console.log('Try')
-            // Delete post
-            await fetch('/api/mitradb', {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    _id: objectId,
-                    namaVenue: namaVenue
-                }),
-            });
-            // reset the deleting state
-            // reload the page
-            alert('Mitra Terhapus')
-            router.push('/dev/mitra-dev')
-        } catch (error) {
-            // stop deleting state
-        }
-    };
 
-    const handlePost = async (e) => {
-        e.preventDefault();
-        
-        // fields check
-        if (!namaVenue || !namaPemilikVenue || !alamat || !noWa || !instagram || !kategori || !hariOperasional ||
-            !jamOperasional || !fasilitas || !opsiBayar || !namaAdmin || !noWaAdmin || !email || !fotoVenue) {
-            alert('Harap untuk mengisi semua data');
-            return setError('Isi Semua Data');
-        }
-        // post structure
-        let mitra = {
-            namaVenue,
-            namaPemilikVenue,
-            alamat,
-            noWa,
-            instagram,
-            kategori,
-            hariOperasional,
-            jamOperasional,
-            fasilitas,
-            opsiBayar,
-            rekening,
-            DP,
-            namaAdmin,
-            noWaAdmin,
-            email,
-            fotoVenue
-        };
-        // save the post
-        let response = await fetch('/api/favoritdb', {
-            method: 'POST',
-            body: JSON.stringify(mitra),
-        });
-        // get the data
-        let data = await response.json();
-        if (data.success) {
-            // reset the fields
-            alert('Penambahan Favorit Sukses')
-            return setMessage(data.message);
-        }
-        else {
-            // set the error
-            console.log(data.message);
-            return setError(data.message);
-        }
-    };
+
+
+
 
     return (
         <div className="limiter">
             <div className="container-login100">
-                <form className="login100-form validate-form" onSubmit={handlePost}>
+                <form className="login100-form validate-form">
                     <span className="login100-form-title">
-                        MITRA
+                        PROFIL MITRA
                     </span>
                     <div className="p-3 py-5">
                         <div className="row">
@@ -120,7 +36,7 @@ export default function DetailMitra() {
                                 <input type="text" className="form-control"
                                     required
                                     name="nama"
-                                    value={namaVenue}
+                                    value={mitra.namaVenue}
                                     readOnly
                                 />
                             </div>
@@ -131,7 +47,7 @@ export default function DetailMitra() {
                                 <input type="text" className="form-control"
                                     required
                                     name="nama"
-                                    value={namaPemilikVenue}
+                                    value={mitra.namaPemilikVenue}
                                     readOnly
                                 />
                             </div>
@@ -141,7 +57,7 @@ export default function DetailMitra() {
                                 <label className="labels">Alamat</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <textarea type="text" className="form-control"
                                     required
-                                    value={alamat}
+                                    value={mitra.alamat}
                                     readOnly
                                 />
                             </div>
@@ -151,7 +67,7 @@ export default function DetailMitra() {
                                 <label className="labels">No. WA Venue</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <input type="text" className="form-control"
                                     required
-                                    value={noWa}
+                                    value={mitra.noWa}
                                     readOnly
                                 />
                             </div>
@@ -161,7 +77,7 @@ export default function DetailMitra() {
                                 <label className="labels">Instagram</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <input type="text" className="form-control"
                                     required
-                                    value={`@${instagram}`}
+                                    value={`@${mitra.instagram}`}
                                     readOnly
                                 />
                             </div>
@@ -171,7 +87,7 @@ export default function DetailMitra() {
                                 <label className="labels">Kategori</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <input type="text" className="form-control"
                                     required
-                                    value={kategori}
+                                    value={mitra.kategori}
                                     readOnly
                                 />
                             </div>
@@ -181,7 +97,7 @@ export default function DetailMitra() {
                                 <label className="labels">Hari Operasional</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <input type="text" className="form-control"
                                     required
-                                    value={hariOperasional}
+                                    value={mitra.hariOperasional}
                                     readOnly
                                 />
                             </div>
@@ -191,7 +107,7 @@ export default function DetailMitra() {
                                 <label className="labels">Jam Operasional</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <input type="text" className="form-control"
                                     required
-                                    value={jamOperasional}
+                                    value={mitra.jamOperasional}
                                     readOnly
                                 />
                             </div>
@@ -201,7 +117,7 @@ export default function DetailMitra() {
                                 <label className="labels">Fasilitas</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <textarea type="text" className="form-control"
                                     required
-                                    value={fasilitas}
+                                    value={mitra.fasilitas}
                                     readOnly
                                 />
                             </div>
@@ -210,7 +126,7 @@ export default function DetailMitra() {
                             <div className="mt-2 col-md-12">
                                 <label className="labels">Opsi Bayar</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <ul className='list-group'>
-                                    {opsiBayar.map((data, index) => (
+                                    {mitra.opsiBayar.map((data, index) => (
                                         <li className='list-group-item'>{data}</li>
                                     ))}
                                 </ul>
@@ -220,7 +136,7 @@ export default function DetailMitra() {
                             <div className="mt-2 col-md-12">
                                 <label className="labels">No. Rekening</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <ul className='list-group'>
-                                    {rekening.map((data, index) => (
+                                    {mitra.rekening.map((data, index) => (
                                         <li className='list-group-item'>{data}</li>
                                     ))}
                                 </ul>
@@ -231,7 +147,7 @@ export default function DetailMitra() {
                                 <label className="labels">DP</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <textarea type="text" className="form-control"
                                     required
-                                    value={DP}
+                                    value={mitra.DP}
                                     readOnly
                                 />
                             </div>
@@ -242,7 +158,7 @@ export default function DetailMitra() {
                                 <label className="labels">Nama Admin</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <input type="text" className="form-control"
                                     required
-                                    value={namaAdmin}
+                                    value={mitra.namaAdmin}
                                     readOnly
                                 />
                             </div>
@@ -252,7 +168,7 @@ export default function DetailMitra() {
                                 <label className="labels">No WA Admin</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <input type="text" className="form-control"
                                     required
-                                    value={noWaAdmin}
+                                    value={mitra.noWaAdmin}
                                     readOnly
                                 />
                             </div>
@@ -262,22 +178,22 @@ export default function DetailMitra() {
                                 <label className="labels">Email</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <input type="text" className="form-control"
                                     required
-                                    value={email}
+                                    value={mitra.email}
                                     readOnly
                                 />
                             </div>
                         </div>
                         <div className="col-12 col-md-12">
-                            {fotoVenue.length === 0 ? (
+                            {mitra.fotoVenue.length === 0 ? (
                                 <h2>Daftar Foto</h2>
                             ) : (
                                 <>
 
-                                    {fotoVenue.map((data, i) => (
+                                    {mitra.fotoVenue.map((data, i) => (
                                         <>
                                             <div className='cols-2 mt-3 mb-3 row row-cols-2'>
                                                 <div className='cols-1 col-md-6'>
-                                                    <img id='image' className='img-fluid d-block border border-dark' width={150} height={150} src={`${fotoVenue[i]}`} />
+                                                    <img id='image' className='img-fluid d-block border border-dark' width={150} height={150} src={`${mitra.fotoVenue[i]}`} />
                                                 </div>
 
 
@@ -293,26 +209,26 @@ export default function DetailMitra() {
 
                         <div class="row mt-3 container-login100-form-btn my-3 g-3">
                             <Link href={{
-                                pathname: '/dev/edit-mitra',
+                                pathname: '/mitra/edit-profil',
                                 query: {
-                                    namaVenue: namaVenue,
-                                    namaVenueLama: namaVenue,
-                                    namaPemilikVenue: namaPemilikVenue,
-                                    alamat: alamat,
-                                    noWa: noWa,
-                                    instagram: instagram,
-                                    kategori: kategori,
-                                    hariOperasional: hariOperasional,
-                                    jamOperasional: jamOperasional,
-                                    fasilitas: fasilitas,
-                                    opsiBayarStringify: JSON.stringify(opsiBayar),
-                                    rekeningStringify: JSON.stringify(rekening),
-                                    DP: DP,
-                                    namaAdmin: namaAdmin,
-                                    noWaAdmin: noWaAdmin,
-                                    emailReq: email,
-                                    fotoVenueStringify: JSON.stringify(fotoVenue),
-                                    objectId: objectId
+                                    namaVenue: mitra.namaVenue,
+                                    namaVenueLama: mitra.namaVenue,
+                                    namaPemilikVenue: mitra.namaPemilikVenue,
+                                    alamat: mitra.alamat,
+                                    noWa: mitra.noWa,
+                                    instagram: mitra.instagram,
+                                    kategori: mitra.kategori,
+                                    hariOperasional: mitra.hariOperasional,
+                                    jamOperasional: mitra.jamOperasional,
+                                    fasilitas: mitra.fasilitas,
+                                    opsiBayarStringify: JSON.stringify(mitra.opsiBayar),
+                                    rekeningStringify: JSON.stringify(mitra.rekening),
+                                    DP: mitra.DP,
+                                    namaAdmin: mitra.namaAdmin,
+                                    noWaAdmin: mitra.noWaAdmin,
+                                    emailReq: mitra.email,
+                                    fotoVenueStringify: JSON.stringify(mitra.fotoVenue),
+                                    objectId: mitra._id
                                 }
 
                             }}>
@@ -322,16 +238,6 @@ export default function DetailMitra() {
                                     EDIT
                                 </button>
                             </Link>
-                            <button type="button"
-                                onClick={handlePost}
-                                className="btn btn-outline-secondary mx-3" style={{ backgroundColor: '#ba8b1e', color: 'rgb(255, 255, 255)', borderRadius: '5cm', width: 500, height: 50 }}>
-                                FAVORIT
-                            </button>
-                            <button type="button"
-                                onClick={() => deleteMitra()}
-                                className="btn btn-outline-secondary mx-3" style={{ backgroundColor: '#c41d0e', color: 'rgb(255, 255, 255)', borderRadius: '5cm', width: 500, height: 50 }}>
-                                HAPUS
-                            </button>
                         </div>
                     </div>
                 </form>

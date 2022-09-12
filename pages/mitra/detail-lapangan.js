@@ -52,7 +52,6 @@ export default function DetailLapangan() {
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
     const { data: data, error } = useSWR(`/api/detaillapangandb?idLapangan=${idLapangan}&namaVenueReq=${namaVenue}&namaLapanganReq=${namaLapangan}&tglMainReq=${tglMain}`, fetcher, { refreshInterval: 1000 })
 
-    console.log(tglMain)
     if (!data) {
         return <div className="spinner"></div>
     } else if (error) {

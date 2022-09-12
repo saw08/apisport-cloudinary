@@ -6,7 +6,7 @@ export default function HomeMitra({ namaVenueProps }) {
     var dateTime = (currentdate.getMonth() + 1) + "/"
         + currentdate.getFullYear()
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
-    const { data: data, error } = useSWR(`/api/mitrahomedb?namaVenueReq=${namaVenueProps}&diterimaTglReq=${`8/2022`}`, fetcher)
+    const { data: data, error } = useSWR(`/api/mitrahomedb?namaVenueReq=${namaVenueProps}&diterimaTglReq=${dateTime}`, fetcher)
 
     if (!data) {
         return <div className="spinner"></div>
@@ -106,7 +106,7 @@ export default function HomeMitra({ namaVenueProps }) {
                     </div>
                     <div className="d-flex justify-content-between ">
                         <span style={{ color: 'black' }} className='mb-2'><a style={{ color: 'black' }} href={`https://wa.me/62${venue.infoVenue[0].noWa}`}>
-                            <b ><icon className='fa fa-whatsapp pr-1' /></b>{venue.infoVenue[0].noWa}</a>
+                            <b ><icon className='fa fa-whatsapp pr-1' /></b>0{venue.infoVenue[0].noWa}</a>
                         </span>
                     </div>
                 </div>
