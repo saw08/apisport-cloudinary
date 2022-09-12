@@ -8,8 +8,6 @@ export default function HomeMitra({ namaVenueProps }) {
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
     const { data: data, error } = useSWR(`/api/mitrahomedb?namaVenueReq=${namaVenueProps}&diterimaTglReq=${`8/2022`}`, fetcher)
 
-
-
     if (!data) {
         return <div className="spinner"></div>
     } else if (error) {
@@ -23,6 +21,7 @@ export default function HomeMitra({ namaVenueProps }) {
         total = total + venue.dashboard[i].harga
     }
     console.log(venue)
+
 
     return (
         <div className="container">
@@ -89,26 +88,28 @@ export default function HomeMitra({ namaVenueProps }) {
                 </div>
 
             </div>
-            <div className='row'>
-                <a data-bs-toggle="collapse" href="#fasilitasCollapse" style={{ color: "black" }}><h5 className='text-start'><icon className='fa fa-caret-down'></icon> Fasilitas</h5></a>
+                <h5 className='text-start'> Fasilitas</h5>
                 <div>
-                    <div className="row collapse multi-collapse text-start" id="fasilitasCollapse">
+                <div className="d-flex justify-content-between">
                         <span>{venue.infoVenue[0].fasilitas}</span>
                     </div>
                 </div>
-            </div>
             <div className='row mt-3'>
-                <a data-bs-toggle="collapse" href="#sosmedCollapse" style={{ color: "black" }}><h5 className='text-start'><icon className='fa fa-caret-down'></icon> Sosial Media</h5></a>
+               <h5 className='text-start'> Sosial Media</h5>
                 <div>
-                    <div className="row collapse multi-collapse text-start" id="sosmedCollapse">
+                    <div className="d-flex justify-content-between">
                         <span className='mb-2'><b><icon className='fa fa-instagram' /></b> @{venue.infoVenue[0].instagram}</span>
-                        <span className='mb-2'><b><icon className='fa fa-whatsapp' /></b> {venue.infoVenue[0].noWa}</span>
+                    </div>
+                    <div className="d-flex justify-content-between">
+                        <span className='mb-2'><a>
+                            <b><icon className='fa fa-whatsapp' /></b>{venue.infoVenue[0].noWa}</a>
+                        </span>
                     </div>
                 </div>
             </div>
             <div className='row mt-3'>
-                <a data-bs-toggle="collapse" href="#lapanganCollapse" style={{ color: "black" }}><h5 className='text-start'><icon className='fa fa-caret-down'></icon> Daftar Lapangan</h5></a>
-                <div className="row collapse multi-collapse text-start" id="lapanganCollapse">
+                <h5 className='text-start'><icon className='fa fa-caret-down'></icon> Daftar Lapangan</h5>
+                <div className="row collapse multi-collapse text-start" >
                     {venue.infoLapangan.length === 0 ? (
                         <h4>Tidak ada data Lapangan</h4>
                     ) : (

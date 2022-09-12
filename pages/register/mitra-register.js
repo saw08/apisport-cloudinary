@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { useSession, signIn, signOut } from 'next-auth/react'
 import useSWR from 'swr';
 import Link from 'next/link';
+import PhoneInput from 'react-phone-input-2';
 
 
 export default function MitraRegister() {
@@ -103,7 +104,7 @@ export default function MitraRegister() {
     setMessage('');
     // fields check
     if (!namaVenue || !namaPemilikVenue || !alamat || !noWa || !kategori || !hariOperasional ||
-      !jamOperasional || !opsiBayar || !rekening || !namaAdmin || !noWaAdmin || !fotoVenue || !email) {
+      !jamOperasional || !opsiBayar || !namaAdmin || !noWaAdmin || !fotoVenue || !email) {
       return alert('Harap untuk mengisi semua data');
     }
 
@@ -290,12 +291,14 @@ export default function MitraRegister() {
                     </div>
                     <div className="mt-2 col-md-12"><label className="labels">No . WhatsApp Venue</label>
                       <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
-                      <input type="number"
-                        className="form-control"
-
-                        value={noWa}
-                        onChange={(e) => setNoWa(e.target.value)}
-                        required />
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">+62</span>
+                        <input type="number"
+                          className="form-control"
+                          value={noWa}
+                          onChange={(e) => setNoWa(e.target.value)}
+                          required />
+                      </div>
                     </div>
                     <div className="mt-2 row row-cols col-md-12"><label className="labels">Instagram</label>
                       <div className='col-2 col-md-1 justify-content-center'>
@@ -464,8 +467,7 @@ export default function MitraRegister() {
                         <div className='btn-group col-12 col-lg- mb-2'>
                           <input type="text" className='form-control col-3 col-md-3' id='bank' />
                           <strong className='col-1 col-md-1'>_</strong>
-                          <input type="text" className="form-control col-6 col-md-6" id='rekening' />
-                          <button onClick={onAddItemArray} type='button' className="form-control col-2 col-md-2"><i className="fa fa-plus"></i></button>
+                          <input type="text" className="form-control col-8 col-md-8" id='rekening' />
                         </div>
                       </div>
 
@@ -508,7 +510,9 @@ export default function MitraRegister() {
                         value={noWaAdmin}
                         onChange={(e) => setNoWaAdmin(e.target.value)}
                         required />
+                      
                     </div>
+                    
                     <div className="mt-1 col-md-12">
                       <label className="labels">Username</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                       <input type="text"
@@ -530,7 +534,7 @@ export default function MitraRegister() {
                   </div>
                   <div className="container-login100-form-btn my-3">
                     <button type="submit"
-                      className="btn btn-outline-secondary" style={{ backgroundColor: '#006E61', color: 'rgb(255, 255, 255)', borderRadius: '5cm', width: 500, height: 50 }} disabled={uploading === false ? (false) : (true)} >DAFTAR</button>
+                      className="btn btn-outline-secondary" onClick={onAddItemArray} style={{ backgroundColor: '#006E61', color: 'rgb(255, 255, 255)', borderRadius: '5cm', width: 500, height: 50 }} disabled={uploading === false ? (false) : (true)} >DAFTAR</button>
                     {uploading &&
                       <>
                         <div className='d-flex flex-row'>
