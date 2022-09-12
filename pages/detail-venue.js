@@ -102,10 +102,14 @@ export default function Detailvenue() {
         <h5 className='d-flex justify-content-between'><b>Sosial Media</b></h5>
         <div>
           <div className="d-flex justify-content-between" >
-            <span className='mb-2'><b><icon className='fa fa-instagram' /></b> {venue.infoVenue[0].instagram}</span>
+            <a style={{ color: 'black' }} href={`https://www.instagram.com/${venue.infoVenue[0].instagram}`}>
+              <span className='mb-2'><b><icon className='fa fa-instagram' /></b> {venue.infoVenue[0].instagram}</span>
+            </a>
           </div>
           <div className="d-flex justify-content-between" >
-            <span className='mb-2'><b><icon className='fa fa-whatsapp' /></b> {venue.infoVenue[0].noWa}</span>
+            <a style={{ color: 'black' }} href={`https://wa.me/62${venue.infoVenue[0].noWa}`}>
+              <span className='mb-2'><b><icon className='fa fa-whatsapp' /></b> {venue.infoVenue[0].noWa}</span>
+            </a>
           </div>
         </div></b>
       </div>

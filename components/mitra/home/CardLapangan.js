@@ -53,7 +53,7 @@ export default function CardLapangan({ props }) {
     };
 
     return (
-        <div className="row text-start" >
+  
             <div className="card border-0 mb-3 shadow-sm">
                 <div className="card-body rounded p-3">
                     {/* ROW CONTENT */}
@@ -148,6 +148,5 @@ export default function CardLapangan({ props }) {
                 </div>
             </div>
 
-        </div >
     )
 }

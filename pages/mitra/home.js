@@ -98,18 +98,22 @@ export default function HomeMitra({ namaVenueProps }) {
                <h5 className='text-start'> Sosial Media</h5>
                 <div>
                     <div className="d-flex justify-content-between">
-                        <span className='mb-2'><b><icon className='fa fa-instagram' /></b> @{venue.infoVenue[0].instagram}</span>
+                        <span className='mb-2'>
+                            <a style={{ color: 'black' }} href={`https://wa.me/62${venue.infoVenue[0].noWa}`}>
+                                <b><icon className='fa fa-instagram' /></b> @{venue.infoVenue[0].instagram}
+                            </a>
+                        </span>
                     </div>
-                    <div className="d-flex justify-content-between">
-                        <span className='mb-2'><a>
-                            <b><icon className='fa fa-whatsapp' /></b>{venue.infoVenue[0].noWa}</a>
+                    <div className="d-flex justify-content-between ">
+                        <span style={{ color: 'black' }} className='mb-2'><a style={{ color: 'black' }} href={`https://wa.me/62${venue.infoVenue[0].noWa}`}>
+                            <b ><icon className='fa fa-whatsapp pr-1' /></b>{venue.infoVenue[0].noWa}</a>
                         </span>
                     </div>
                 </div>
             </div>
             <div className='row mt-3'>
                 <h5 className='text-start'><icon className='fa fa-caret-down'></icon> Daftar Lapangan</h5>
-                <div className="row collapse multi-collapse text-start" >
+                <div className="d-flex justify-content-between" >
                     {venue.infoLapangan.length === 0 ? (
                         <h4>Tidak ada data Lapangan</h4>
                     ) : (
