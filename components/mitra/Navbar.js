@@ -62,6 +62,10 @@ const Navbar = ({ namaVenueProps }) => {
                                                 <strong>Admin</strong>
                                             </a>
                                             <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" >
+                                                <li><Link href={{
+                                                    pathname: '/mitra/profil-mitra',
+
+                                                }}><a className="dropdown-item">Profil</a></Link></li>
                                                 <li><a className="dropdown-item" onClick={handleSignOut}>Sign out</a></li>
                                             </ul>
                                         </div>
