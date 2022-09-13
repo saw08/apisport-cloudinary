@@ -47,13 +47,13 @@ const Navbar = ({ namaVenueProps }) => {
                             <div className="modal-body" style={{ padding: '2rem', paddingTop: 0, paddingBottom: 0 }}>
                                 <ul className="navbar-nav responsive me-auto mt-2 mt-lg-0">
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/mitra/home">Beranda</a>
+                                        <a className="nav-link" onClick={() => { window.location.href = '/mitra/home'; }}>Beranda</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/mitra/transaksi-pending">Notifikasi <span className='numberCircle'>{transaksi.length}</span></a>
+                                        <a className="nav-link" onClick={() => { window.location.href = '/mitra/transaksi-pending'; }} >Notifikasi <span className='numberCircle'>{transaksi.length}</span></a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/mitra/data-transaksi">Pembukuan Transaksi</a>
+                                        <a className="nav-link" onClick={() => { window.location.href = '/mitra/data-transaksi'; }}>Pembukuan Transaksi</a>
                                     </li>
                                     <li className="nav-item">
                                         <div className="dropdown mb-3">
@@ -62,10 +62,9 @@ const Navbar = ({ namaVenueProps }) => {
                                                 <strong>Admin</strong>
                                             </a>
                                             <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" >
-                                                <li><Link href={{
-                                                    pathname: '/mitra/profil-mitra',
-
-                                                }}><a className="dropdown-item">Profil</a></Link></li>
+                                                <li>
+                                                    <a onClick={() => { window.location.href = '/mitra/profil-mitra'; }} className="dropdown-item">Profil</a>
+                                                </li>
                                                 <li><a className="dropdown-item" onClick={handleSignOut}>Sign out</a></li>
                                             </ul>
                                         </div>
