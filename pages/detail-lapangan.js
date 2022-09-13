@@ -24,6 +24,7 @@ export default function DetailLapangan() {
     let available = true
     let jamTerisi = []
     let jamFilter = []
+    let hari = ''
     var currentdate = new Date();
     var dateDate = currentdate.getDate() + "/"
         + (currentdate.getMonth() + 1) + "/"
@@ -120,6 +121,7 @@ export default function DetailLapangan() {
         // console.log('Hari UTC TGl MAIN')
         let dateCheckerInit = new Date(tglMain)
         let dateChecker = weekday[dateCheckerInit.getUTCDay()]
+        hari = dateChecker
 
         if (arrayAvailableHariTemp.indexOf(dateChecker) === -1) {
             available = false
@@ -361,6 +363,7 @@ export default function DetailLapangan() {
                     <input type='date' id='tglMain' value={tglMain} onChange={(e) => setTglMainFunc(e.target.value)} className='form-control mb-4' required></input>
                     <h5 style={{ color: 'blue' }}><b>Hari Operasional: </b>{lapanganRes.infoVenue[0].hariOperasional} </h5>
                     <div className='card p-3'>
+                        <h5>{hari}</h5>
                         <div className='row' style={{ color: 'white' }}>
                             {/* THIS IS CARD */}
 
@@ -387,7 +390,7 @@ export default function DetailLapangan() {
                             }
                             {!available &&
                                 <>
-                                <h4 className='text-black' style={{ color: 'red' }}>Mitra tidak beroperasi</h4>
+                                    <h4 className='text-black' style={{ color: 'red' }}>Mitra tidak beroperasi pada hari {hari}</h4>
                                 </>
                             }
                             {/* {gabunganJadwal.length === 0 ? (
@@ -414,7 +417,7 @@ export default function DetailLapangan() {
 
                     <div className='row'>
                         <h4><b>Jadwal yang akan dipesan:</b></h4>
-                        <h4>Tgl Main: {tglMain}</h4>
+                        <h4>Tgl Main: {`${hari}, ${tglMain}`}</h4>
                         <h4>Total Harga: {`Rp ${totalHarga.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`}</h4>
                         <hr></hr>
                         {jadwalPesan.length === 0 ? (

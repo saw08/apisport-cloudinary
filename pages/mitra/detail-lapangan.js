@@ -33,6 +33,7 @@ export default function DetailLapangan() {
         + currentdate.getSeconds();
     console.log(dateDate)
     console.log(dateHours)
+    let hari = '-'
 
 
     //State of Decay
@@ -120,6 +121,7 @@ export default function DetailLapangan() {
         // console.log('Hari UTC TGl MAIN')
         let dateCheckerInit = new Date(tglMain)
         let dateChecker = weekday[dateCheckerInit.getUTCDay()]
+        hari = dateChecker
 
         if (arrayAvailableHariTemp.indexOf(dateChecker) === -1) {
             available = false
@@ -354,6 +356,7 @@ export default function DetailLapangan() {
                     <input type='date' id='tglMain' value={tglMain} onChange={(e) => setTglMainFunc(e.target.value)} className='form-control mb-4' required></input>
                     <h5 style={{ color: 'red' }}><b>Hari Operasional: </b>{lapanganRes.infoVenue[0].hariOperasional} </h5>
                     <div className='card p-3'>
+                        <h5>{hari}</h5>
                         <div className='row' style={{ color: 'white' }}>
                             {/* THIS IS CARD */}
 
