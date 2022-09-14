@@ -25,7 +25,6 @@ export default function CardLapangan({ props }) {
 
     const deleteLapangan = async () => {
         //change deleting state
-        setDeleting(true);
         try {
             console.log('Try')
             // Delete post
@@ -39,10 +38,9 @@ export default function CardLapangan({ props }) {
                 }),
             });
             // reset the deleting state
-            setDeleting(false);
             // reload the page
             alert('Hapus Lapangan Berhasil')
-            router.reload()
+            router.push('mitra/home')
 
 
         } catch (error) {

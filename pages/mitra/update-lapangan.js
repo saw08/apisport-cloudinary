@@ -495,9 +495,9 @@ export default function Updetlapangan() {
                                         id='jamPagiAkhir'
                                     />
                                 </div>
-                                <div className='col-1 col-lg-5 mb-2'>
+                                <div className='col-12 col-lg-5 mb-2'>
                                     <div className='d-flex flex-row'>
-                                        <div className='col-2 col-sm-2'>
+                                        <div className='col-1 col-sm-2'>
                                             <label>Rp</label>
                                         </div>
                                         <div className='col-11 col-sm-10'>
@@ -524,9 +524,9 @@ export default function Updetlapangan() {
                                         id='jamMalamAkhir'
                                         className="form-control" placeholder="Akhir" />
                                 </div>
-                                <div className='col-1 col-lg-5 mb-2'>
+                                <div className='col-12 col-lg-5 mb-2'>
                                     <div className='d-flex flex-row'>
-                                        <div className='col-2 col-sm-2'>
+                                        <div className='col-1 col-sm-2'>
                                             <label>Rp</label>
                                         </div>
                                         <div className='col-11 col-sm-10'>
