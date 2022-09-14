@@ -379,8 +379,8 @@ export default function Addlapangan() {
                         {/* only sm */}
                         <div className=".d-block .d-sm-none" style={{ color: 'black' }}>
                             <div className="col-sm-12" >
-                            <label className="labels">Jam Operasional</label>
-                            <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
+                                <h6>Jam Pagi<i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i></h6>
+                            
                             <div className='row'>
                                 <div className='col-12 col-sm-3 mb-2'>
                                     <input type="time" className="form-control " placeholder="Mulai"
@@ -410,7 +410,8 @@ export default function Addlapangan() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                </div>
+                            <h6>Jam Malam ( Isi jika harga berbeda )</h6>
                             <div className='row'>
                                 <div className='col-12 col-sm-3 mb-2'>
                                     <input type="time" className="form-control "
@@ -461,11 +462,12 @@ export default function Addlapangan() {
                                 <>
 
                                     {jadwalTampilan.map((data, i) => (
-                                        <div className='col-3 col-sm-3 mb-2'>
+                                        <div className='col-6 col-sm-3 mb-2'>
                                             <div className='card text-center'>
                                                 <div className='card-body'>
-                                                    <span>{data}</span><br></br>
-                                                    <span>Rp {hargaTampilan[i].toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}</span>
+                                                    <h6>{data}</h6>
+                                                    <h6>Rp {hargaTampilan[i].toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}</h6>
+
                                                 </div>
                                             </div>
                                         </div>
