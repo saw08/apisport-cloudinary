@@ -376,28 +376,31 @@ export default function Addlapangan() {
                     </div>
                     <div className='card p-3'>
                         <h4 className="labels" style={{ color: 'black' }}>Atur Jadwal dan Harga</h4>
-                        <div className=" mt-2 col-md-12" style={{ color: 'black' }}><label className="labels">Jam Operasional</label>
+                        {/* only sm */}
+                        <div className=".d-block .d-sm-none" style={{ color: 'black' }}>
+                            <div className="col-sm-12" >
+                            <label className="labels">Jam Operasional</label>
                             <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                             <div className='row'>
-                                <div className='col-3 col-lg-3 mb-2'>
+                                <div className='col-12 col-sm-3 mb-2'>
                                     <input type="time" className="form-control " placeholder="Mulai"
                                         id='jamPagiMulai'
                                         required />
                                 </div>
-                                <div className='col-1 col-lg-1 mb-2 text-center'>
+                                <div className='col-12 col-sm-1 mb-2 text-center'>
                                     <strong>_</strong>
                                 </div>
-                                <div className='col-3 col-lg-3 mb-2'>
+                                <div className='col-12 col-sm-3 mb-2'>
                                     <input type="time" className="form-control" placeholder="Akhir" required
                                         id='jamPagiAkhir'
                                     />
                                 </div>
-                                <div className='col-5 col-lg-5 mb-2'>
+                                <div className='col-12 col-sm-5 mb-2'>
                                     <div className='d-flex flex-row'>
-                                        <div className='col-2 col-sm-2'>
+                                        <div className='col-1 col-sm-2'>
                                             <label>Rp</label>
                                         </div>
-                                        <div className='col-10 col-sm-10'>
+                                        <div className='col-11 col-sm-10'>
                                             <input type="number" className="form-control" placeholder="Harga Pagi"
                                                 required
                                                 value={hargaPagi}
@@ -409,24 +412,24 @@ export default function Addlapangan() {
                                 </div>
                             </div>
                             <div className='row'>
-                                <div className='col-3 col-lg-3 mb-2'>
+                                <div className='col-12 col-sm-3 mb-2'>
                                     <input type="time" className="form-control "
                                         id='jamMalamMulai'
                                         placeholder="Mulai" /></div>
-                                <div className='col-1 col-lg-1 mb-2 text-center'>
+                                <div className='col-12 col-sm-1 mb-2 text-center'>
                                     <strong>_</strong>
                                 </div>
-                                <div className='col-3 col-lg-3 mb-2'>
+                                <div className='col-12 col-sm-3 mb-2'>
                                     <input type="time"
                                         id='jamMalamAkhir'
                                         className="form-control" placeholder="Akhir" />
                                 </div>
-                                <div className='col-5 col-lg-5 mb-2'>
+                                <div className='col-12 col-sm-5 mb-2'>
                                     <div className='d-flex flex-row'>
-                                        <div className='col-2 col-sm-2'>
+                                        <div className='col-1 col-sm-2'>
                                             <label>Rp</label>
                                         </div>
-                                        <div className='col-10 col-sm-10'>
+                                        <div className='col-11 col-sm-10'>
                                             <input type="number" className="form-control"
                                                 placeholder="Harga Malam"
                                                 value={hargaMalam}
@@ -444,7 +447,7 @@ export default function Addlapangan() {
                             <div className='d-flex-end flex-row justify-content-end mt-3'>
                                 <input type='button' className='btn-fill text-white' onClick={lihatJadwal} value='CEK JADWAL' />
                             </div>
-
+                            </div>
                         </div>
                     </div>
                     <div className='mt-3'>
