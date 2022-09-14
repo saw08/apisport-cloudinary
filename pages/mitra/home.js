@@ -6,7 +6,7 @@ export default function HomeMitra({ namaVenueProps }) {
     var dateTime = (currentdate.getMonth() + 1) + "/"
         + currentdate.getFullYear()
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
-    const { data: data, error } = useSWR(`/api/mitrahomedb?namaVenueReq=${namaVenueProps}&diterimaTglReq=${dateTime}`, fetcher)
+    const { data: data, error } = useSWR(`/api/mitrahomedb?namaVenueReq=${namaVenueProps}&diterimaTglReq=${dateTime}`, fetcher, {refreshInterval: 1000})
 
     if (!data) {
         return <div className="spinner"></div>

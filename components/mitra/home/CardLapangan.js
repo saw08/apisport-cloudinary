@@ -43,10 +43,11 @@ export default function CardLapangan({ props }) {
             router.push('mitra/home')
 
 
+
+
         } catch (error) {
             console.log('Catch')
             // stop deleting state
-            return setDeleting(false);
         }
     };
 
