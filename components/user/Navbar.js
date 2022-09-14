@@ -48,7 +48,7 @@ const Navbar = () => {
                         <div className="modal-content bg-white border-0">
                             <div className="modal-header border-0" style={{ padding: '2rem', paddingBottom: 0 }}>
                                 <a className="modal-title" id="targetModalLabel">
-                                    <img style={{ marginRight: '0.75rem', height: '50px' }} src="./y.png" alt />
+                                    <img style={{ marginRight: '0.75rem', height: '50px' }} src="/y.png" alt />
                                 </a>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
                             </div>
