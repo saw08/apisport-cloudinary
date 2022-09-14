@@ -8,9 +8,13 @@ import CardTestimonial from '../components/user/home/CardTestimonial'
 import useSWR from 'swr'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useSession, } from 'next-auth/react'
+
 
 export default function Home() {
   const [search, setSearch] = useState('')
+  const { data: session, status } = useSession()
+
   const fetcher = (...args) => fetch(...args).then((res) => res.json())
   const { data: data, error } = useSWR('/api/homefavoritdb', fetcher, {refreshInterval: 1000})
 
@@ -155,11 +159,24 @@ export default function Home() {
         <div className='container mt-4 my-4 text-black-50'>
           <h4 style={{ color: '#EE8F00' }} className='mb-5 py-3 header-custom'>TESTIMONI</h4>
           <CardTestimonial />
-          <div className='col-md-12'>
-            <h5>Nama</h5>
-            <input type="text"
-              className="form-control" />
-          </div>
+          {session &&
+            <div className='row col-md-12'>
+              <div className=' col-md-8'>
+                <label className='d-flex flex-row justify-content-left '>Nama</label>
+                <input type="text"
+                  value={session.user.name}
+                  className="form-control " />
+              </div>
+              <div className=' col-md-8' >
+                <label className='d-flex flex-row justify-content-left '>Nama</label>
+                <textarea class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="2"
+                >
+                </textarea>
+              </div>
+            </div>
+          }
         </div>
         <div className='container mt-4 my-4 text-black-50'>
           <h4 style={{ color: '#EE8F00' }} className='mb-5 header-custom'>ALUR BOOKING</h4>
