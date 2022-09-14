@@ -92,6 +92,7 @@ export default function DetailLapangan() {
         // console.log(jamTerisi)
         console.log('Jam Filter')
         console.log(jamFilter)
+        console.log(infoLapangan)
     }
 
     const setAvailableHari = () => {
@@ -178,7 +179,7 @@ export default function DetailLapangan() {
         /*  {
              isCheck ? setTotalHarga(totalHarga => totalHarga + parseInt(harga)) : setTotalHarga(totalHarga => totalHarga - parseInt(harga))
          } */
-        console.log(totalHarga + ' ,' + harga)
+
         setAvailableJam()
         setAvailableJamFilter()
     }
@@ -187,7 +188,80 @@ export default function DetailLapangan() {
     const handlePost = async (e) => {
         e.preventDefault()
         if (jamFilter.length === 0) {
-            if (jadwalPesan.length > 3) {
+            if (infoLapangan.minOrder) {
+                if (jadwalPesan.length < 2) {
+                    alert('Batas minimum pesan adalah 2')
+                } else if (jadwalPesan.length > 3) {
+                    alert('Batas Maksimum Pemesanan adalah 3')
+                }
+                else {
+                    let url = ''
+                    if (session) {
+                        url = `/api/pembayarandb?emailReq=${session.user.email}&namaVenueReq=${lapanganRes.infoVenue[0].namaVenue}&tglMainReq=${tglMain}&jadwalPesanReq=${jadwalPesan}&lapanganReq=${infoLapangan.namaLapangan}`
+                    }
+                    let response1 = await fetch(url, {
+                        method: 'GET'
+                    });
+                    let data1 = await response1.json();
+                    let profil = data1['message'].profil[0]
+                    console.log(`JSON Test:`)
+                    console.log(profil)
+                    let nama = profil.nama
+                    let email = profil.email
+                    let lapangan = infoLapangan.namaLapangan
+                    let noWa = profil.noWa
+                    let namaVenue = lapanganRes.infoVenue[0].namaVenue
+                    let jadwalMain = jadwalPesan
+                    let diterimaTgl = dateDate
+                    let diterimaJam = dateHours
+                    let status = 'pending'
+                    let harga = totalHarga
+                    let transaksi = {
+                        nama,
+                        email,
+                        lapangan,
+                        noWa,
+                        namaVenue,
+                        tglMain,
+                        jadwalMain,
+                        harga,
+                        diterimaTgl,
+                        diterimaJam,
+                        status
+                    };
+                    // save the post
+                    let response = await fetch('/api/transaksidb', {
+                        method: 'POST',
+                        body: JSON.stringify(transaksi),
+                    });
+                    // get the data
+                    let data = await response.json();
+                    if (data.success) {
+                        // reset the fields
+                        alert('Jadwal Berhasil dipesan, Mohon untuk menyelesaikan pembayaran di halaman berikutnya!')
+                        console.log('Object ID:')
+                        console.log(data.message)
+                        router.push({
+                            pathname: '/pembayaran',
+                            query: {
+                                jadwalPesanReq: JSON.stringify(jadwalPesan),
+                                totalHargaReq: totalHarga,
+                                namaVenueReq: lapanganRes.infoVenue[0].namaVenue,
+                                namaLapanganReq: infoLapangan.namaLapangan,
+                                tglMainReq: tglMain,
+                                diterimaTglReq: diterimaTgl,
+                                diterimaJamReq: diterimaJam,
+                                idTransaksiReq: data.message
+                            }
+                        })
+                    }
+                    else {
+                        // set the error
+                        console.log(data.message);
+                    }
+                }
+            }
+            else if (jadwalPesan.length > 3) {
                 alert('Batas Maksimum Pemesanan adalah 3')
             } else if (jadwalPesan.length == 0) {
                 alert('Tidak ada Jadwal yang dipesan')
@@ -355,6 +429,9 @@ export default function DetailLapangan() {
                     <div className="d-flex justify-content-between">
                         <span>{infoLapangan.deskripsi}</span>
                     </div>
+                </div>
+                <div>
+                    <span>Cek er{infoLapangan.minOrder}</span>
                 </div>
             </div>
             <div className='mt-3'>

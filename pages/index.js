@@ -154,7 +154,12 @@ export default function Home() {
         </div>
         <div className='container mt-4 my-4 text-black-50'>
           <h4 style={{ color: '#EE8F00' }} className='mb-5 py-3 header-custom'>TESTIMONI</h4>
-            <CardTestimonial />
+          <CardTestimonial />
+          <div className='col-md-12'>
+            <h5>Nama</h5>
+            <input type="text"
+              className="form-control" />
+          </div>
         </div>
         <div className='container mt-4 my-4 text-black-50'>
           <h4 style={{ color: '#EE8F00' }} className='mb-5 header-custom'>ALUR BOOKING</h4>
