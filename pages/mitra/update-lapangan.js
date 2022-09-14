@@ -479,28 +479,28 @@ export default function Updetlapangan() {
                     </div>
                     <div className='card p-3'>
                         <h4 className="labels" style={{ color: 'black' }}>Atur Jadwal dan Harga</h4>
-                        <div className=" mt-2 col-md-12" style={{ color: 'black' }}><label className="labels">Jam Operasional</label>
-                            <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
+                        <div className=" mt-2 col-md-12" style={{ color: 'black' }}>
+                            <h6>Jam Pagi<i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i></h6>
                             <div className='row'>
-                                <div className='col-3 col-lg-3 mb-2'>
+                                <div className='col-12 col-lg-3 mb-2'>
                                     <input type="time" className="form-control " placeholder="Mulai"
                                         id='jamPagiMulai'
                                     />
                                 </div>
-                                <div className='col-1 col-lg-1 mb-2 text-center'>
+                                <div className='col-12 col-lg-1 mb-2 text-center'>
                                     <strong>_</strong>
                                 </div>
-                                <div className='col-3 col-lg-3 mb-2'>
+                                <div className='col-12 col-lg-3 mb-2'>
                                     <input type="time" className="form-control" placeholder="Akhir"
                                         id='jamPagiAkhir'
                                     />
                                 </div>
-                                <div className='col-5 col-lg-5 mb-2'>
+                                <div className='col-1 col-lg-5 mb-2'>
                                     <div className='d-flex flex-row'>
                                         <div className='col-2 col-sm-2'>
                                             <label>Rp</label>
                                         </div>
-                                        <div className='col-10 col-sm-10'>
+                                        <div className='col-11 col-sm-10'>
                                             <input type="number" className="form-control" placeholder="Harga Pagi"
                                                 required
                                                 value={_hargaPagi}
@@ -510,25 +510,26 @@ export default function Updetlapangan() {
                                     </div>
                                 </div>
                             </div>
+                            <h6>Jam Malam <i style={{ color: '#ff0000' }}>( Isi jika harga berbeda )</i></h6>
                             <div className='row'>
-                                <div className='col-3 col-lg-3 mb-2'>
+                                <div className='col-12 col-lg-3 mb-2'>
                                     <input type="time" className="form-control "
                                         id='jamMalamMulai'
                                         placeholder="Mulai" /></div>
-                                <div className='col-1 col-lg-1 mb-2 text-center'>
+                                <div className='col-12 col-lg-1 mb-2 text-center'>
                                     <strong>_</strong>
                                 </div>
-                                <div className='col-3 col-lg-3 mb-2'>
+                                <div className='col-12 col-lg-3 mb-2'>
                                     <input type="time"
                                         id='jamMalamAkhir'
                                         className="form-control" placeholder="Akhir" />
                                 </div>
-                                <div className='col-5 col-lg-5 mb-2'>
+                                <div className='col-1 col-lg-5 mb-2'>
                                     <div className='d-flex flex-row'>
                                         <div className='col-2 col-sm-2'>
                                             <label>Rp</label>
                                         </div>
-                                        <div className='col-10 col-sm-10'>
+                                        <div className='col-11 col-sm-10'>
                                             <input type="number" className="form-control"
                                                 placeholder="Harga Malam"
                                                 value={_hargaMalam}
@@ -559,7 +560,7 @@ export default function Updetlapangan() {
                                 <>
 
                                     {jadwalTampilan.map((data, i) => (
-                                        <div className='col-3 col-sm-3 mb-2'>
+                                        <div className='col-6 col-sm-3 mb-2'>
                                             <div className='card text-center'>
                                                 <div className='card-body'>
                                                     <span>{data}</span><br></br>
