@@ -6,7 +6,7 @@ export default function HomeMitra({ namaVenueProps }) {
     var dateTime = (currentdate.getMonth() + 1) + "/"
         + currentdate.getFullYear()
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
-    const { data: data, error } = useSWR(`/api/mitrahomedb?namaVenueReq=${namaVenueProps}&diterimaTglReq=${`8/2022`}`, fetcher)
+    const { data: data, error } = useSWR(`/api/mitrahomedb?namaVenueReq=${namaVenueProps}&diterimaTglReq=${dateTime}`, fetcher)
 
     if (!data) {
         return <div className="spinner"></div>
@@ -71,14 +71,14 @@ export default function HomeMitra({ namaVenueProps }) {
 
                                     {/* END SLIDER */}
                                 </div>
-                                <div className="col-md-8 text-start">
+                                <div className="col-md-8 text-start"><strong>
                                     <h5 className="card-title mt-3" style={{ color: "black" }}><strong>{venue.infoVenue[0].namaVenue}</strong></h5>
                                     <span className="card-text" style={{ color: "black" }}><icon className='fa fa-calendar'></icon> {venue.infoVenue[0].hariOperasional}</span><br></br>
                                     <span className="card-text" style={{ color: "black" }}><icon className='fa fa-clock'></icon> {venue.infoVenue[0].jamOperasional}</span><br></br>
                                     <span className="card-text" style={{ color: "black" }}><icon className='fa fa-compass'></icon> {venue.infoVenue[0].alamat}</span><br></br>
                                     <span className="card-text" style={{ color: "black" }}><icon className='fa fa-futbol'></icon> {venue.infoVenue[0].kategori}</span><br></br>
                                     <span className="card-text text-muted" style={{ color: "black" }}><strong>Harga mulai dari </strong><br></br><span style={{ color: "green" }}>{venue.infoLapangan.length === 0 ? ('Tidak ada data lapangan tersedia') : (` Rp ${venue.infoLapangan[0].hargaPagi.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`)}</span></span>
-                                </div>
+                                </strong></div>
 
                             </div>
 
@@ -88,14 +88,14 @@ export default function HomeMitra({ namaVenueProps }) {
                 </div>
 
             </div>
-                <h5 className='text-start'> Fasilitas</h5>
+            <h5 className='text-start'><b> Fasilitas </b></h5>
                 <div>
                 <div className="d-flex justify-content-between">
-                        <span>{venue.infoVenue[0].fasilitas}</span>
+                    <b> <span>{venue.infoVenue[0].fasilitas}</span></b>
                     </div>
                 </div>
-            <div className='row mt-3'>
-               <h5 className='text-start'> Sosial Media</h5>
+            <div className='row mt-3'><strong>
+               <h5 className='text-start'><b>Sosial Media</b></h5>
                 <div>
                     <div className="d-flex justify-content-between">
                         <span className='mb-2'>
@@ -106,14 +106,14 @@ export default function HomeMitra({ namaVenueProps }) {
                     </div>
                     <div className="d-flex justify-content-between ">
                         <span style={{ color: 'black' }} className='mb-2'><a style={{ color: 'black' }} href={`https://wa.me/62${venue.infoVenue[0].noWa}`}>
-                            <b ><icon className='fa fa-whatsapp pr-1' /></b>{venue.infoVenue[0].noWa}</a>
+                            <b ><icon className='fa fa-whatsapp pr-1' /></b>0{venue.infoVenue[0].noWa}</a>
                         </span>
                     </div>
-                </div>
+                </div></strong>
             </div>
             <div className='row mt-3'>
                 <h5 className='text-start'><icon className='fa fa-caret-down'></icon> Daftar Lapangan</h5>
-                <div className="d-flex justify-content-between" >
+                <div className="d-flex justify-content-between" ><strong>
                     {venue.infoLapangan.length === 0 ? (
                         <h4>Tidak ada data Lapangan</h4>
                     ) : (
@@ -123,6 +123,7 @@ export default function HomeMitra({ namaVenueProps }) {
                             ))}
                         </>
                     )}
+                </strong>
                 </div>
             </div>
             <div className='row'>
