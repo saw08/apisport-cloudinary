@@ -112,7 +112,7 @@ export default function HomeMitra({ namaVenueProps }) {
                 </div></strong>
             </div>
             <div className='row mt-3'>
-                <h5 className='text-start'><icon className='fa fa-caret-down'></icon> Daftar Lapangan</h5>
+                <h5 className='text-start'><icon className='fa fa-caret-down'></icon><strong> Daftar Lapangan </strong></h5>
                 <div className="d-flex justify-content-between" ><strong>
                     {venue.infoLapangan.length === 0 ? (
                         <h4>Tidak ada data Lapangan</h4>
