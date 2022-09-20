@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import Carousel from 'react-bootstrap/Carousel'
 import CardRekomendasi from '../components/user/home/CardRekomendasi'
 import CardTestimonial from '../components/user/home/CardTestimonial'
+import CardKomentar from '../components/user/home/CardKomentar'
 import useSWR from 'swr'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -159,24 +160,7 @@ export default function Home() {
         <div className='container mt-4 my-4 text-black-50'>
           <h4 style={{ color: '#EE8F00' }} className='mb-5 py-3 header-custom'>TESTIMONI</h4>
           <CardTestimonial />
-          {session &&
-            <div className='row col-md-12'>
-              <div className=' col-md-8'>
-                <label className='d-flex flex-row justify-content-left '>Nama</label>
-                <input type="text"
-                  value={session.user.name}
-                  className="form-control " />
-              </div>
-              <div className=' col-md-8' >
-                <label className='d-flex flex-row justify-content-left '>Nama</label>
-                <textarea class="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="2"
-                >
-                </textarea>
-              </div>
-            </div>
-          }
+          <CardKomentar />
         </div>
         <div className='container mt-4 my-4 text-black-50'>
           <h4 style={{ color: '#EE8F00' }} className='mb-5 header-custom'>ALUR BOOKING</h4>
