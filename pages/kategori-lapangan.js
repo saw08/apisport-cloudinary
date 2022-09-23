@@ -134,11 +134,11 @@ export default function KategoriLapangan() {
                             {kategori == 'Bulu Tangkis' ? (
                                 <div>
                                     <img src='icons/bulutangkis.png' style={{ backgroundColor: '#EE8F00', color: 'black' }} className="bd-placeholder-img img-fluid rounded-circle" width={120} height={120} role="img" aria-label="Placeholder: 140x140" />
-                                    <p className="mt-2 p-1" style={{ color: "white", backgroundColor: '#EE8F00', borderRadius: "5px" }}>Bulu Tangkis</p>
+                                    <p className="mt-2 p-lg-2" style={{ color: "white", backgroundColor: '#EE8F00', borderRadius: "5px", fontSize: '12px' }}>Bulu Tangkis</p>
                                 </div>) : (
                                 <div>
                                     <img src='icons/bulutangkis.png' style={{ backgroundColor: '#432C0B', color: 'black' }} className="bd-placeholder-img img-fluid rounded-circle" width={120} height={120} role="img" aria-label="Placeholder: 140x140" />
-                                    <p className="mt-2 p-1" style={{ color: "white", backgroundColor: '#432C0B', borderRadius: "5px" }}>Bulu Tangkis</p>
+                                        <p className="mt-2 p-lg-2" style={{ color: "white", backgroundColor: '#432C0B', borderRadius: "5px", fontSize: '12px' }}>Bulu Tangkis</p>
                                 </div>)}
 
                         </Link>
