@@ -4,8 +4,7 @@ import Helmet from 'react-helmet'
 import Carousel from 'react-bootstrap/Carousel'
 import CardRekomendasi from '../components/user/lapangan/CardRekomendasi'
 import CardKategori from '../components/user/lapangan/CardKategori'
-import useSWR from 'swr'
-import Pagination from '../components/Pagination'
+ import Pagination from '../components/Pagination'
 import { useState } from 'react'
 
 

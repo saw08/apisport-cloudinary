@@ -1,7 +1,7 @@
 const { connectToDatabase } = require('../../lib/mongodb');
 const ObjectId = require('mongodb').ObjectId;
 // mengambil data dari collection komentar
-async function getUser(req, res) {
+async function getKomentar(req, res) {
     try {
         // connect to the database
         let { db } = await connectToDatabase();
@@ -24,7 +24,7 @@ async function getUser(req, res) {
         });
     }
 }
-async function deleteuser(req, res) {
+async function deletekomentar(req, res) {
     var ObjectId = require('mongodb').ObjectId;
     const { _id } = req.body;
     const convertedObjectId = new ObjectId(_id);
@@ -74,16 +74,16 @@ export default async function handler(req, res) {
     // switch the methods
     switch (req.method) {
         case 'GET': {
-            return getUser(req, res);
+            return getKomentar(req, res);
         }
         case 'POST': {
-            return adduser(req, res);
+            return addkomentar(req, res);
         }
         case 'PUT': {
-            return updateuser(req, res);
+            return updatekomentar(req, res);
         }
         case 'DELETE': {
-            return deleteuser(req, res);
+            return deletekomentar(req, res);
         }
     }
 }

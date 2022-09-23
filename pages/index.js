@@ -157,11 +157,14 @@ export default function Home() {
 
           </div>
         </div>
-        <div className='container mt-4 my-4 text-black-50'>
+        <div className='container mt-4 my-4'>
           <h4 style={{ color: '#EE8F00' }} className='mb-5 py-3 header-custom'>TESTIMONI</h4>
           <CardTestimonial />
+        </div>
+        <div className='container '>
           <CardKomentar />
         </div>
+
         <div className='container mt-4 my-4 text-black-50'>
           <h4 style={{ color: '#EE8F00' }} className='mb-5 header-custom'>ALUR BOOKING</h4>
           <img src='/alur.png' className='d-block img-fluid' />
