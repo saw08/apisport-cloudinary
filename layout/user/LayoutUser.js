@@ -96,10 +96,11 @@ const LayoutUser = ({ children }) => {
         if (emailDb.mitra.length != 0 || emailDb.mitraPending.length != 0) {
             return (
                 <>
-                    <div>Akun Mitra tidak dapat mengakses untuk halaman ini, mohon untuk Sign Out terlebih dahulu</div>
-                    {/* <button className='btn btn-primary' onClick={handleSignOut()}>Sign Out</button> */}
+                    <div className='container mt-5'><p>Anda telah login sebagai Mitra </p>
+                        <a href='/mitra/home'><button className='btn btn-primary' >Lanjut ke halaman utama</button></a>
+                    </div>
                 </>
-
+                
             )
         } else {
             return (

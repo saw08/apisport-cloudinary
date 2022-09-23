@@ -37,7 +37,9 @@ const LayoutAdmin = ({ children }) => {
     if (session) {
         if (emailDb.user.length != 0 || emailDb.mitraPending.length != 0) {
             return (
-                <div>Anda tidak Memiliki akses untuk halaman ini</div>
+                <div className='container mt-5'><p>Tidak memiliki akses ke halaman ini </p>
+                    <a href='/'><button className='btn btn-primary' >Kembali ke Beranda</button></a>
+                </div>
             )
         } else {
             return (
