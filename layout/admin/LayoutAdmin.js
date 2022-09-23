@@ -37,7 +37,7 @@ const LayoutAdmin = ({ children }) => {
     if (session) {
         if (emailDb.user.length != 0 || emailDb.mitraPending.length != 0) {
             return (
-                <div className='container mt-5'><p>Tidak memiliki akses ke halaman ini </p>
+                <div className='container mt-5'><p>Tidak memiliki akses ke halaman               . ini </p>
                     <a href='/'><button className='btn btn-primary' >Kembali ke Beranda</button></a>
                 </div>
             )
@@ -49,6 +49,10 @@ const LayoutAdmin = ({ children }) => {
                         <script src="../styles/bootstrap/js/bootstrap.min.js"></script>
                     </Helmet>
                     <Head>
+                        <meta name="viewport" content="width=device-width"></meta>
+                        <meta name="viewport" content="initial-scale=1.0"></meta>
+                        <meta name="viewport" content="width=device-width"></meta>
+                        <meta name="viewport" content="user-scalable=no, width=device-width">
                         <meta name="application-name" content="PWA App" />
                         <meta name="apple-mobile-web-app-capable" content="yes" />
                         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

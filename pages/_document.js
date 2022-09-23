@@ -7,6 +7,10 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
+                    <meta name="viewport" content="width=device-width"></meta>
+                    <meta name="viewport" content="initial-scale=1.0"></meta>
+                    <meta name="viewport" content="width=device-width"></meta>
+                    <meta name="viewport" content="user-scalable=no, width=device-width"/>
                     <meta name="application-name" content="PWA App" />
                     <meta name="apple-mobile-web-app-capable" content="yes" />
                     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
