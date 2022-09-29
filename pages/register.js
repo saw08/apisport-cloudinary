@@ -38,7 +38,7 @@ export default function Register() {
               
               <div className="flex-c-m">
                 {!session && <a href="#" onClick={handleSigninUser} className="btn btn-primary p-3">
-                  <i className="fa fa-google" /> &nbsp; &nbsp; &nbsp; Daftar dengan Google
+                  <i className="fa fa-profile" /> &nbsp; &nbsp; &nbsp; Daftar sebagai User
 
                 </a>}
                 {session &&
