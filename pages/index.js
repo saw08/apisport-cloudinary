@@ -6,10 +6,12 @@ import Carousel from 'react-bootstrap/Carousel'
 import CardRekomendasi from '../components/user/home/CardRekomendasi'
 import CardTestimonial from '../components/user/home/CardTestimonial'
 import CardKomentar from '../components/user/home/CardKomentar'
+import Youtube from '../components/user/home/youtube'
 import useSWR from 'swr'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useSession, } from 'next-auth/react'
+
 
 
 export default function Home() {
@@ -156,6 +158,9 @@ export default function Home() {
             )}
 
           </div>
+        </div>
+        <div className='container '>
+          <Youtube />
         </div>
         <div className='container mt-4 my-4'>
           <h4 style={{ color: '#EE8F00' }} className='mb-5 py-3 header-custom'>TESTIMONI</h4>
