@@ -13,10 +13,10 @@ export default class YoutubeVideo
         };
 
         return (
-            <div>
+            <div className="col-12 col-sm-12">
                 <h3>Cara Daftar Sebagai Mitra</h3>
-                <YouTube videoId="1EmHH-U4w18"
-                    opts={opts} onReady={this._onReady} />
+                {/* <YouTube videoId="1EmHH-U4w18"
+                    opts={opts} onReady={this._onReady} /> */}
             </div>
         );
     }
