@@ -65,31 +65,31 @@ export default function MitraRegister() {
     e.preventDefault();
 
     //Cloudinary ADD
-    const body = new FormData();
-    let imageUrl = []
+    // const body = new FormData();
+    // let imageUrl = []
     //Uploading
-    setUploading(true)
+    // setUploading(true)
     //Uploading
-    body.append('upload_preset', 'my-uploads');
+    // body.append('upload_preset', 'my-uploads');
     //console.log("file", image)
-    for (let i = 0; i < image.length; i++) {
-      await body.append("file", image[i]);
-      const response = await fetch('https://api.cloudinary.com/v1_1/api-sport/image/upload', {
-        method: "POST",
-        body
-      }).then(r => r.json());
-      await console.log(response)
-      await console.log('Secure URL')
-      await console.log(response.secure_url)
-      imageUrl.push(response.secure_url)
-      // console.log('Secure URL Array')
-      // console.log(imageUrl)
-    }
-    setFotoVenue(Object.assign(fotoVenue, imageUrl))
-    //Uploading
-    if (imageUrl.length = 0) {
-      setUploading(false)
-    }
+    // for (let i = 0; i < image.length; i++) {
+    //   await body.append("file", image[i]);
+    //   const response = await fetch('https://api.cloudinary.com/v1_1/api-sport/image/upload', {
+    //     method: "POST",
+    //     body
+    //   }).then(r => r.json());
+    //   await console.log(response)
+    //   await console.log('Secure URL')
+    //   await console.log(response.secure_url)
+    //   imageUrl.push(response.secure_url)
+    //   // console.log('Secure URL Array')
+    //   // console.log(imageUrl)
+    // }
+    // setFotoVenue(Object.assign(fotoVenue, imageUrl))
+    // //Uploading
+    // if (imageUrl.length = 0) {
+    //   setUploading(false)
+    // }
     //Uploading
 
         // console.log('Secure URL State')
@@ -97,14 +97,13 @@ export default function MitraRegister() {
         //Cloudinary END
     
     setEmail(session.user.email)
-    setCheck()
-    setJam()
-    setHari()
+    // setCheck()
+    // setJam()
+    // setHari()
     // reset error and message
     setMessage('');
     // fields check
-    if (!namaVenue || !namaPemilikVenue || !alamat || !noWa || !kategori || !hariOperasional ||
-      !jamOperasional || !opsiBayar || !namaAdmin || !noWaAdmin || !fotoVenue || !email) {
+    if (!namaVenue || !namaPemilikVenue || !alamat || !noWa || !kategori || !email) {
       return alert('Harap untuk mengisi semua data');
     }
 
@@ -128,7 +127,7 @@ export default function MitraRegister() {
       fotoVenue
     };
     // save the post
-    let response = await fetch('/api/mitrapendingdb', {
+    let response = await fetch('/api/mitradb', {
       method: 'POST',
       body: JSON.stringify(mitraPending),
     });
@@ -137,7 +136,7 @@ export default function MitraRegister() {
     if (data.success) {
       // reset the fields
       alert('Register sebagai mitra berhasil!')
-      signOut({ callbackUrl: '/' })
+      signOut({ callbackUrl: '/mitra/home' })
       
       return setMessage(data.message);
     }
@@ -148,103 +147,103 @@ export default function MitraRegister() {
     }
   };
 
-  const setJam = () => {
-    let valueJamMulai = document.getElementById('jamOperasionalMulai').value
-    let valueJamAkhir = document.getElementById('jamOperasionalAkhir').value
-    let jadi = `${valueJamMulai} - ${valueJamAkhir}`
-    setJamOperasional(jadi)
-    setEmail(session.user.email)
-  }
+  // const setJam = () => {
+  //   let valueJamMulai = document.getElementById('jamOperasionalMulai').value
+  //   let valueJamAkhir = document.getElementById('jamOperasionalAkhir').value
+  //   let jadi = `${valueJamMulai} - ${valueJamAkhir}`
+  //   setJamOperasional(jadi)
+  //   setEmail(session.user.email)
+  // }
 
-  const setHari = () => {
-    let hariMulai = document.getElementById('hariOperasionalMulai').value
-    let hariAkhir = document.getElementById('hariOperasionalAkhir').value
-    let jadi = `${hariMulai} - ${hariAkhir}`
-    setHariOperasional(jadi)
-    setEmail(session.user.email)
-  }
+  // const setHari = () => {
+  //   let hariMulai = document.getElementById('hariOperasionalMulai').value
+  //   let hariAkhir = document.getElementById('hariOperasionalAkhir').value
+  //   let jadi = `${hariMulai} - ${hariAkhir}`
+  //   setHariOperasional(jadi)
+  //   setEmail(session.user.email)
+  // }
 
-  const setCheck = () => {
-    setOpsiBayar([])
-    let check = document.getElementsByName('opsiBayar')
-    let DP = document.getElementById('DP')
-    let len = check.length
-    for (var i = 0; i < len; i++) {
-      if (check[i].checked) {
-        setOpsiBayar(arr => [...arr, check[i].value]);
-        if (check[i].value == 'DP') {
-          DP.readOnly = false
-        }
-      } else if (!check[i].checked && check[i].value == 'DP') {
-        DP.readOnly = true
-        setDP(0)
-      }
-    }
+  // const setCheck = () => {
+  //   setOpsiBayar([])
+  //   let check = document.getElementsByName('opsiBayar')
+  //   let DP = document.getElementById('DP')
+  //   let len = check.length
+  //   for (var i = 0; i < len; i++) {
+  //     if (check[i].checked) {
+  //       setOpsiBayar(arr => [...arr, check[i].value]);
+  //       if (check[i].value == 'DP') {
+  //         DP.readOnly = false
+  //       }
+  //     } else if (!check[i].checked && check[i].value == 'DP') {
+  //       DP.readOnly = true
+  //       setDP(0)
+  //     }
+  //   }
 
-  };
+  // };
 
-  const onAddItemArray = () => {
-    setCheck()
-    setHari()
-    setJam()
-    let valueBank = document.getElementById('bank').value
-    let valueNoRek = document.getElementById('rekening').value
-    let jadi = `${valueBank} - ${valueNoRek}`
-    setRekening(arr => [...arr, jadi]);
-    document.getElementById('bank').value = ''
-    document.getElementById('rekening').value = ''
-    console.log(`Alamat: ${alamat}`)
-    console.log(`Fasilitas: ${fasilitas}`)
-
-
-  };
-
-  const removeItemArray = (data) => {
-    console.log(data)
-    console.log('initialSTate:')
-    console.log(rekening)
-    var index = rekening.indexOf(data)
-    if (index >= 0) {
-      if (rekening.length === 0) {
-        setRekening([])
-      } else {
-        setRekening(tim => [...tim.slice(0, index), ...tim.slice(index + 1)])
-      }
-    }
-
-    console.log('afterState:')
-
-  };
-
-  const removeItemArrayGambar = (data) => {
-    var index = fotoVenue.indexOf(data)
-    if (index >= 0) {
-      if (fotoVenue.length === 0) {
-        setFotoVenue([])
-        setImage([])
-        setCreateObjectURL([])
-      } else {
-        setFotoVenue(array => [...array.slice(0, index), ...array.slice(index + 1)])
-        setImage(array => [...array.slice(0, index), ...array.slice(index + 1)])
-        setCreateObjectURL(array => [...array.slice(0, index), ...array.slice(index + 1)])
-      }
-    }
-
-    console.log('afterState:')
-
-  };
+  // const onAddItemArray = () => {
+  //   setCheck()
+  //   setHari()
+  //   setJam()
+  //   let valueBank = document.getElementById('bank').value
+  //   let valueNoRek = document.getElementById('rekening').value
+  //   let jadi = `${valueBank} - ${valueNoRek}`
+  //   setRekening(arr => [...arr, jadi]);
+  //   document.getElementById('bank').value = ''
+  //   document.getElementById('rekening').value = ''
+  //   console.log(`Alamat: ${alamat}`)
+  //   console.log(`Fasilitas: ${fasilitas}`)
 
 
-  const uploadToClient = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      var x = document.getElementById("image");
+  // };
 
-      const i = event.target.files[0];
-      setFotoVenue(array => [...array, i.name])
-      setImage(array => [...array, i]);
-      setCreateObjectURL(array => [...array, URL.createObjectURL(i)]);
-    }
-  };
+  // const removeItemArray = (data) => {
+  //   console.log(data)
+  //   console.log('initialSTate:')
+  //   console.log(rekening)
+  //   var index = rekening.indexOf(data)
+  //   if (index >= 0) {
+  //     if (rekening.length === 0) {
+  //       setRekening([])
+  //     } else {
+  //       setRekening(tim => [...tim.slice(0, index), ...tim.slice(index + 1)])
+  //     }
+  //   }
+
+  //   console.log('afterState:')
+
+  // };
+
+  // const removeItemArrayGambar = (data) => {
+  //   var index = fotoVenue.indexOf(data)
+  //   if (index >= 0) {
+  //     if (fotoVenue.length === 0) {
+  //       setFotoVenue([])
+  //       setImage([])
+  //       setCreateObjectURL([])
+  //     } else {
+  //       setFotoVenue(array => [...array.slice(0, index), ...array.slice(index + 1)])
+  //       setImage(array => [...array.slice(0, index), ...array.slice(index + 1)])
+  //       setCreateObjectURL(array => [...array.slice(0, index), ...array.slice(index + 1)])
+  //     }
+  //   }
+
+  //   console.log('afterState:')
+
+  // };
+
+
+  // const uploadToClient = (event) => {
+  //   if (event.target.files && event.target.files[0]) {
+  //     var x = document.getElementById("image");
+
+  //     const i = event.target.files[0];
+  //     setFotoVenue(array => [...array, i.name])
+  //     setImage(array => [...array, i]);
+  //     setCreateObjectURL(array => [...array, URL.createObjectURL(i)]);
+  //   }
+  // };
 
   
 
@@ -264,7 +263,7 @@ export default function MitraRegister() {
                 <div className="p-3 py-3">
                   <div className="row mt-2">
                     <div className="col-md-12">
-                      <label className="labels">Nama Venue</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
+                      <label className="labels">Nama Gedung Lapangan</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                       <input type="text"
                         className="form-control"
 
@@ -273,7 +272,7 @@ export default function MitraRegister() {
                         required />
                     </div>
                     <div className="col-md-12 mt-2">
-                      <label className="labels">Nama Pemilik Venue</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
+                      <label className="labels">Nama Pemilik </label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                       <input type="text" className="form-control"
                         value={namaPemilikVenue}
                         onChange={(e) => setNamaPemilikVenue(e.target.value)}
@@ -300,7 +299,7 @@ export default function MitraRegister() {
                           required />
                       </div>
                     </div>
-                    <div className="mt-2 row row-cols col-md-12"><label className="labels">Instagram</label>
+                    {/* <div className="mt-2 row row-cols col-md-12"><label className="labels">Instagram</label>
                       <div className='col-2 col-md-1 justify-content-center'>
                         <input type="text"
                           value="@" />
@@ -313,7 +312,7 @@ export default function MitraRegister() {
                         />
                       </div>
 
-                    </div>
+                    </div> */}
                     <div className="form-group mt-2 col-md-12">
                       <label htmlFor="exampleFormControlSelect1">Kategori Olahraga</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                       <select className="form-control form-select" onChange={(e) => setKategori(e.target.value)} required>
@@ -324,7 +323,7 @@ export default function MitraRegister() {
                         <option value={'Voli'}>Voli</option>
                       </select>
                     </div>
-
+{/* 
                     <div className="mt-2 col-md-12"><label className="labels">Hari Operasional</label>
                       <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                       <div className='row'>
@@ -493,10 +492,10 @@ export default function MitraRegister() {
 
                     <div className="mt-2 col-md-12">
                       <hr className='mt-3'></hr>
-                    </div>
-
+                    </div> */}
+{/* 
                     {/* Bagian Admin */}
-                    <div className="mt-1 col-md-12">
+                    {/* <div className="mt-1 col-md-12">
                       <label className="labels">Nama Admin</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                       <input type="text"
                         className="form-control"
@@ -511,7 +510,7 @@ export default function MitraRegister() {
                         onChange={(e) => setNoWaAdmin(e.target.value)}
                         required />
                       
-                    </div>
+                    </div>  */}
                     
                     <div className="mt-1 col-md-12">
                       <label className="labels">Username</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
@@ -534,7 +533,8 @@ export default function MitraRegister() {
                   </div>
                   <div className="container-login100-form-btn my-3">
                     <button type="submit"
-                      className="btn btn-outline-secondary" onClick={onAddItemArray} style={{ backgroundColor: '#006E61', color: 'rgb(255, 255, 255)', borderRadius: '5cm', width: 500, height: 50 }} disabled={uploading === false ? (false) : (true)} >DAFTAR</button>
+                      className="btn btn-outline-secondary"
+                      style={{ backgroundColor: '#006E61', color: 'rgb(255, 255, 255)', borderRadius: '5cm', width: 500, height: 50 }} disabled={uploading === false ? (false) : (true)} >DAFTAR</button>
                     {uploading &&
                       <>
                         <div className='d-flex flex-row'>
