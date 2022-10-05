@@ -5,6 +5,7 @@ import { useSession, signIn, signOut } from 'next-auth/react'
 import useSWR from 'swr';
 import Link from 'next/link';
 import PhoneInput from 'react-phone-input-2';
+import Alamat from "../../components/provinsi";
 
 
 export default function MitraRegister() {
@@ -280,13 +281,14 @@ export default function MitraRegister() {
                         required />
                     </div>
                     <div className="mt-2 col-md-12"><label className="labels">Alamat</label>
-                      <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
+                      {/* <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                       <textarea class="form-control"
                         id="exampleFormControlTextarea1"
                         rows="3"
                         value={alamat}
                         onChange={(e) => setAlamat(e.target.value)}
-                        required></textarea>
+                        required></textarea> */}
+                      <Alamat/>
                     </div>
                     <div className="mt-2 col-md-12"><label className="labels">No . WhatsApp Venue</label>
                       <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>

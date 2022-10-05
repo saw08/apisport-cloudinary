@@ -154,7 +154,7 @@ const Navbar = () => {
                         }
                         {!session &&
                             <>
-                                <button onClick={handleLogin} style={{ backgroundColor: '#006E61' }} className="m-2 text-white btn btn-default btn-no-fill"><strong>Masuk</strong></button>
+                            <button onClick={handleLogin} style={{ backgroundColor: '#006E61', borderRadius: '15px' }} className="m-2 text-white btn btn-default btn-no-fill"><strong>Masuk</strong></button>
                             <a onClick={() => { window.location.href = '/register'; }}><button className="btn btn-fill text-white">Daftar</button></a>
                           
                             </>
