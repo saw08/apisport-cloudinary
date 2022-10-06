@@ -37,6 +37,12 @@ export default function MitraRegister() {
   //uploading
   const [uploading, setUploading] = useState(false)
 
+  //kabupaten
+  let provinsi = ''
+  let kabupaten = ''
+  let kecamatan = ''
+  let desa = ''
+
 
 
   let router = useRouter()
@@ -62,8 +68,16 @@ export default function MitraRegister() {
     signOut({ callbackUrl: '/' })
   }
 
+  const checkAll = () => {
+    provinsi = document.getElementById('inProvinsi').value
+    kabupaten = document.getElementById('inKabupaten').value
+    kecamatan = document.getElementById('inKecamatan').value
+    desa = document.getElementById('inDesa').value
+  }
+
   const handlePost = async (e) => {
     e.preventDefault();
+    checkAll()
 
     //Cloudinary ADD
     // const body = new FormData();
@@ -113,6 +127,10 @@ export default function MitraRegister() {
       namaVenue,
       namaPemilikVenue,
       alamat,
+      provinsi,
+      kabupaten,
+      kecamatan,
+      desa,
       noWa,
       instagram,
       kategori,
@@ -137,7 +155,7 @@ export default function MitraRegister() {
     if (data.success) {
       // reset the fields
       alert('Register sebagai mitra berhasil!')
-      signOut({ callbackUrl: '/mitra/home' })
+      router.push('/mitra/home')
       
       return setMessage(data.message);
     }
