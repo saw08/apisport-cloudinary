@@ -104,7 +104,7 @@ export default function MitraRegister() {
     // reset error and message
     setMessage('');
     // fields check
-    if (!namaVenue || !namaPemilikVenue || !alamat || !noWa || !kategori || !email) {
+    if (!namaVenue || !namaPemilikVenue || !noWa || !kategori || !email) {
       return alert('Harap untuk mengisi semua data');
     }
 
