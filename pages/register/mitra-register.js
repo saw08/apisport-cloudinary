@@ -299,13 +299,13 @@ export default function MitraRegister() {
                         required />
                     </div>
                     <div className="mt-2 col-md-12"><label className="labels">Alamat</label>
-                      {/* <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
+                      <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                       <textarea class="form-control"
                         id="exampleFormControlTextarea1"
                         rows="3"
                         value={alamat}
                         onChange={(e) => setAlamat(e.target.value)}
-                        required></textarea> */}
+                        required></textarea>
                       <Alamat/>
                     </div>
                     <div className="mt-2 col-md-12"><label className="labels">No . WhatsApp Venue</label>
@@ -555,15 +555,6 @@ export default function MitraRegister() {
                     <button type="submit"
                       className="btn btn-outline-secondary"
                       style={{ backgroundColor: '#006E61', color: 'rgb(255, 255, 255)', borderRadius: '5cm', width: 500, height: 50 }} disabled={uploading === false ? (false) : (true)} >DAFTAR</button>
-                    {uploading &&
-                      <>
-                        <div className='d-flex flex-row'>
-                          <div className="spinner-loading">
-                          </div>
-                          <span>Sedang upload gambar, Mohon Tunggu...</span>
-                        </div>
-                      </>
-                    }
                   </div>
                   <div className="flex-col-c mt-3">
                     <span className="txt1 p-b-10">
