@@ -31,6 +31,8 @@ const LayoutAdmin = ({ children }) => {
         return <div>Something went wrong</div>
     }
     let emailDb = data['message']
+    console.log(emailDb)
+    console.log(`Email adalah ${session.user.email}`)
     //End
 
     //Session

@@ -25,13 +25,11 @@ export default function MitraRegister() {
   //Admin Confined
   const [namaAdmin, setNamaAdmin] = useState('');
   const [noWaAdmin, setNoWaAdmin] = useState('');
-  const [email, setEmail] = useState('');
+  let email = ''
   const { data: session, status } = useSession()
 
   //Gambar
   const [fotoVenue, setFotoVenue] = useState([]);
-  const [image, setImage] = useState([]);
-  const [createObjectURL, setCreateObjectURL] = useState([]);
   const [message, setMessage] = useState('');
 
   //uploading
@@ -64,19 +62,21 @@ export default function MitraRegister() {
   console.log(emailDb)
 
 
-  const handleSignOut = (e) => {
-    signOut({ callbackUrl: '/' })
-  }
+  // const handleSignOut = (e) => {
+  //   signOut({ callbackUrl: '/' })
+  // }
 
   const checkAll = () => {
     provinsi = document.getElementById('inProvinsi').value
     kabupaten = document.getElementById('inKabupaten').value
     kecamatan = document.getElementById('inKecamatan').value
     desa = document.getElementById('inDesa').value
+    email = session.user.email
   }
 
   const handlePost = async (e) => {
     e.preventDefault();
+
     checkAll()
 
     //Cloudinary ADD
@@ -111,7 +111,7 @@ export default function MitraRegister() {
         // console.log(gambar)
         //Cloudinary END
     
-    setEmail(session.user.email)
+   
     // setCheck()
     // setJam()
     // setHari()

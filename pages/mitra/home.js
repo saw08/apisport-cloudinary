@@ -27,7 +27,7 @@ export default function HomeMitra({ namaVenueProps }) {
     return (
         <div className="container">
             <h1 className="fw-bold fst-italic">Detail Venue</h1>
-            {venue.infoVenue[0].fotoVenue == '' &&
+            {venue.infoVenue[0].fotoVenue.length == 0 &&
                 <>
                     <div className="mt-4 mb-4">
                         <h3>Harap melengkapi Informasi Lapangan</h3>
