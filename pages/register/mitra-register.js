@@ -302,7 +302,7 @@ export default function MitraRegister() {
                     <Alamat />
                     <div className="mt-2 col-md-12"><label className="labels">Jalan</label>
                       <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
-                      <textarea className="form-control mt-3"
+                      <textarea className="form-control"
                         id="exampleFormControlTextarea1"
                         rows="3"
                         value={alamat}
