@@ -298,15 +298,16 @@ export default function MitraRegister() {
 
                         required />
                     </div>
-                    <div className="mt-2 col-md-12"><label className="labels">Alamat</label>
+
+                    <Alamat />
+                    <div className="mt-2 col-md-12"><label className="labels">Jalan</label>
                       <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
-                      <textarea className="form-control mb-3"
+                      <textarea className="form-control mt-3"
                         id="exampleFormControlTextarea1"
                         rows="3"
                         value={alamat}
                         onChange={(e) => setAlamat(e.target.value)}
                         required></textarea>
-                      <Alamat/>
                     </div>
                     <div className="mt-2 col-md-12"><label className="labels">No . WhatsApp Venue</label>
                       <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
