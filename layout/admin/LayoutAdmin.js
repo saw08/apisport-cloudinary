@@ -17,12 +17,10 @@ const LayoutAdmin = ({ children }) => {
     const { data: session, status } = useSession()
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
     let url = ''
-    // url = `/api/checkmail?emailReq=${`ucihaar6@gmail.com`}`
-    // url = `/api/checkmail?emailReq=${`wowmissqueen@gmail.com`}`
     if (session) {
         url = `/api/checkmail?emailReq=${session.user.email}`
     }
-    const { data: data, error } = useSWR(url, fetcher)
+    const { data: data, error } = useSWR(url, fetcher, { refreshInterval: 1000 })
 
     if (!data) {
         return (<> <div className="spinner"></div><div className='d-flex flex-row justify-content-center'>Loading...</div></>

@@ -70,7 +70,6 @@ export default function MitraRegister() {
     provinsi = document.getElementById('inProvinsi').value
     kabupaten = document.getElementById('inKabupaten').value
     kecamatan = document.getElementById('inKecamatan').value
-    desa = document.getElementById('inDesa').value
     email = session.user.email
   }
 
@@ -164,6 +163,7 @@ export default function MitraRegister() {
       console.log(data.message);
       return setError(data.message);
     }
+    
   };
 
   // const setJam = () => {

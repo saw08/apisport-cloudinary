@@ -38,7 +38,6 @@ export default function Provinsi() {
         setKecamatanArrayTemp([])
         document.getElementById('inKabupaten').value = ''
         document.getElementById('inKecamatan').value = ''
-        document.getElementById('inDesa').value = ''
         provinsi = document.getElementById('inProvinsi').value
         if (provinsi != '') {
             let idProvinsi = alamat.provinces.find(x => x.name === provinsi)
@@ -53,7 +52,6 @@ export default function Provinsi() {
         setKecamatanArrayTemp([])
         setDesaArrayTemp([])
         document.getElementById('inKecamatan').value = ''
-        document.getElementById('inDesa').value = ''
         kabupaten = document.getElementById('inKabupaten').value
         if (kabupaten != '') {
             let idRegency = alamat.regencies.find(x => x.name === kabupaten)
@@ -62,17 +60,6 @@ export default function Provinsi() {
         }
     };
 
-    const setDesaFunc = (e) => {
-        setDesaArrayTemp([])
-        document.getElementById('inDesa').value = ''
-        kecamatan = document.getElementById('inKecamatan').value
-        if (kecamatan != '') {
-            let idDistrict = alamat.districts.find(x => x.name === kecamatan)
-            console.log(idDistrict.id)
-            let tesDesa = alamat.villages.filter(x => x.district_id === idDistrict.id)
-            setDesaArrayTemp(tesDesa)
-        }
-    };
 
 
     return (
@@ -106,7 +93,7 @@ export default function Provinsi() {
             </select>
             <br></br>
             <label className="labels">Kecamatan</label>
-            <select id='inKecamatan' className="form-control form-select" onChange={setDesaFunc}>
+            <select id='inKecamatan' className="form-control form-select">
                 <option value={''}>--- Pilih Kecamatan ---</option>
                 {kecamatanArrayTemp.length === 0 ? (
                     <></>
@@ -122,23 +109,7 @@ export default function Provinsi() {
                     </>
                 )}
             </select><br></br>
-            <label className="labels">Desa</label>
-            <select id='inDesa' className="form-control form-select" >
-                <option value={''}>--- Pilih Desa ---</option>
-                {desaArrayTemp.length === 0 ? (
-                    <></>
-                ) : (
-                    <>
 
-                        {desaArrayTemp.map((data, i) => (
-
-                            <>
-                                <option value={data.name}>{data.name}</option>
-                            </>
-                        ))}
-                    </>
-                )}
-            </select>
         </div>
     )
 }

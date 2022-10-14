@@ -171,11 +171,11 @@ export default function KategoriLapangan() {
                         <input type="text"
                             className="form-control col-10 mt-2 col-md-10"
                             placeholder="Cari Lapangan Disini"
-                            value={search}
+                            value={searchTerm}
                             onChange={(e) => setSearch(e.target.value)}
                         />
                         {/* <div className='col-2 mt-2 col-sm-2'>
-                            <Link href={`/cari-lapangan?search=${search}`} ><button className=" btn shadow-sm" style={{ backgroundColor: '#EE8F00' }}><i className="fa fa-search text-white"></i></button></Link>
+                            <Link href={`/cari-lapangan?search=${searchTerm}`} ><button className=" btn shadow-sm" style={{ backgroundColor: '#EE8F00' }}><i className="fa fa-search text-white"></i></button></Link>
                         </div> */}
                     </div>
                 </div>
