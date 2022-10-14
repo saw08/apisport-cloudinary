@@ -80,30 +80,6 @@ export default function EditMitra() {
         if (typeof kategori == 'string') {
             setKategori(kategori)
         }
-        if (typeof hariOperasional == 'string') {
-            let hariTemp = hariOperasional.split(" - ")
-            document.getElementById('hariOperasionalMulai').value = hariTemp[0]
-            document.getElementById('hariOperasionalAkhir').value = hariTemp[1]
-            console.log(hariTemp)
-            setHariOperasional(hariOperasional)
-        }
-        if (typeof jamOperasional == 'string') {
-            let jamTemp = jamOperasional.split(" - ")
-            document.getElementById('jamOperasionalMulai').value = jamTemp[0]
-            document.getElementById('jamOperasionalAkhir').value = jamTemp[1]
-            console.log(jamTemp)
-            setJamOperasional(jamOperasional)
-
-        } if (typeof fasilitas == 'string') {
-            setFasilitas(fasilitas)
-        } if (typeof opsiBayarStringify == 'string') {
-            setOpsiBayar(Object.assign(_opsiBayar, JSON.parse(opsiBayarStringify)))
-            checkOtomatis()
-        } if (typeof rekeningStringify == 'string') {
-            setRekening(Object.assign(_rekening, JSON.parse(rekeningStringify)))
-        } if (typeof DP == 'string') {
-            setDP(DP)
-        }
         if (typeof namaAdmin == 'string') {
             setNamaAdmin(namaAdmin)
         } if (typeof noWaAdmin == 'string') {
@@ -436,7 +412,7 @@ export default function EditMitra() {
                                 <div className='row'>
                                     <div className='col-5 col-lg-5 mb-2'>
                                         <select className="form-control form-select" id="hariOperasionalMulai" onChange={() => setHari()}>
-                                            <option value={''}>---Mulai---</option>
+                                            <option value={''} disabled selected>---Mulai---</option>
                                             <option value={'Senin'}>Senin</option>
                                             <option value={'Selasa'}>Selasa</option>
                                             <option value={'Rabu'}>Rabu</option>
@@ -451,7 +427,7 @@ export default function EditMitra() {
                                     </div>
                                     <div className='col-5 col-lg-5 mb-2'>
                                         <select className="form-control form-select" id="hariOperasionalAkhir" onChange={() => setHari()}>
-                                            <option value={''}>---Akhir---</option>
+                                            <option value={''} disabled selected>---Akhir---</option>
                                             <option value={'Senin'}>Senin</option>
                                             <option value={'Selasa'}>Selasa</option>
                                             <option value={'Rabu'}>Rabu</option>

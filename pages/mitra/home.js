@@ -116,7 +116,35 @@ export default function HomeMitra({ namaVenueProps }) {
                                         <span className="card-text" style={{ color: "black" }}><icon className='fa fa-futbol'></icon> {venue.infoVenue[0].kategori}</span><br></br>
                                         <span className="card-text text-muted" style={{ color: "black" }}><strong>Harga mulai dari </strong><br></br><span style={{ color: "green" }}>{venue.infoLapangan.length === 0 ? ('Tidak ada data lapangan tersedia') : (` Rp ${venue.infoLapangan[0].hargaPagi.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`)}</span></span>
                                     </strong></div>
+                                    <div>
+                                        <Link href={{
+                                            pathname: '/mitra/edit-profil',
+                                            query: {
+                                                namaVenue: venue.infoVenue[0].namaVenue,
+                                                namaVenueLama: venue.infoVenue[0].namaVenue,
+                                                namaPemilikVenue: venue.infoVenue[0].namaPemilikVenue,
+                                                alamat: venue.infoVenue[0].alamat,
+                                                noWa: venue.infoVenue[0].noWa,
+                                                instagram: venue.infoVenue[0].instagram,
+                                                kategori: venue.infoVenue[0].kategori,
+                                                hariOperasional: venue.infoVenue[0].hariOperasional,
+                                                jamOperasional: venue.infoVenue[0].jamOperasional,
+                                                fasilitas: venue.infoVenue[0].fasilitas,
+                                                opsiBayarStringify: JSON.stringify(venue.infoVenue[0].opsiBayar),
+                                                rekeningStringify: JSON.stringify(venue.infoVenue[0].rekening),
+                                                DP: venue.infoVenue[0].DP,
+                                                namaAdmin: venue.infoVenue[0].namaAdmin,
+                                                noWaAdmin: venue.infoVenue[0].noWaAdmin,
+                                                emailReq: venue.infoVenue[0].email,
+                                                fotoVenueStringify: JSON.stringify(venue.infoVenue[0].fotoVenue),
+                                                objectId: venue.infoVenue[0]._id
+                                            }
 
+                                        }}>
+                                            <button className="btn btn-fill text-white">Edit Info Venue</button>
+                                        </Link>
+
+                                    </div>
                                 </div>
 
                                 {/* END ROW */}
