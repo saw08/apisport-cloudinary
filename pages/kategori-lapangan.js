@@ -174,9 +174,9 @@ export default function KategoriLapangan() {
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
-                        <div className='col-2 mt-2 col-sm-2'>
+                        {/* <div className='col-2 mt-2 col-sm-2'>
                             <Link href={`/cari-lapangan?search=${search}`} ><button className=" btn shadow-sm" style={{ backgroundColor: '#EE8F00' }}><i className="fa fa-search text-white"></i></button></Link>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
