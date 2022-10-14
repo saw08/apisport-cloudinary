@@ -141,7 +141,7 @@ export default function HomeMitra({ namaVenueProps }) {
                                             }
 
                                         }}>
-                                            <button className="btn btn-fill text-white">Edit Info Venue</button>
+                                            <button className="btn btn-fill text-white">Edit Info Gedung Lapangan</button>
                                         </Link>
 
                                     </div>
