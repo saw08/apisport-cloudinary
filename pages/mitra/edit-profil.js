@@ -436,7 +436,7 @@ export default function EditMitra() {
                                 <div className='row'>
                                     <div className='col-5 col-lg-5 mb-2'>
                                         <select className="form-control form-select" id="hariOperasionalMulai" onChange={() => setHari()}>
-                                            <option value={''}>---Mulai---</option>
+                                            <option value={''} disabled selected>---Mulai---</option>
                                             <option value={'Senin'}>Senin</option>
                                             <option value={'Selasa'}>Selasa</option>
                                             <option value={'Rabu'}>Rabu</option>
@@ -451,7 +451,7 @@ export default function EditMitra() {
                                     </div>
                                     <div className='col-5 col-lg-5 mb-2'>
                                         <select className="form-control form-select" id="hariOperasionalAkhir" onChange={() => setHari()}>
-                                            <option value={''}>---Akhir---</option>
+                                            <option value={''} disabled selected>---Akhir---</option>
                                             <option value={'Senin'}>Senin</option>
                                             <option value={'Selasa'}>Selasa</option>
                                             <option value={'Rabu'}>Rabu</option>
