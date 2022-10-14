@@ -41,7 +41,15 @@ const LayoutAdmin = ({ children }) => {
                     <a href='/'><button className='btn btn-primary' >Kembali ke Beranda</button></a>
                 </div>
             )
-        } else {
+        } else if (emailDb.namaVenue.length == 0) {
+            return (
+                <div>
+                    <h5>Loading...</h5>
+                </div>
+            )
+            
+        }
+        else {
             return (
                 <div className="container-xxl mx-auto p-0  position-relative header-2-2" style={{ fontFamily: '"Poppins", sans-serif' }}>
                     <Helmet>
