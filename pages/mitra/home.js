@@ -26,13 +26,13 @@ export default function HomeMitra({ namaVenueProps }) {
 
     return (
         <div className="container">
-            <h1 className="fw-bold fst-italic">Detail Venue</h1>
+            <h2 className="fw-bold fst-italic">Beranda</h2>
             {venue.infoVenue[0].fotoVenue.length == 0 &&
                 <>
                     <div className="mt-4 mb-4">
                         <h3>Harap melengkapi Informasi Lapangan</h3>
                         <Link href={{
-                            pathname: '/mitra/edit-profil',
+                            pathname: '/mitra/lengkapi-profil',
                             query: {
                                 namaVenue: venue.infoVenue[0].namaVenue,
                                 namaVenueLama: venue.infoVenue[0].namaVenue,

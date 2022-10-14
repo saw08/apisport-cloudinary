@@ -42,7 +42,10 @@ export default function TransaksiPending({namaVenueProps}) {
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div className="row">
-
+                            <div className="btn-group col-md-12">
+                                <input type="text" className="form-control col-10 mt-2 col-md-10" placeholder="Cari Transaksi Disini (Nama Pemesan)" />
+                                <a href='/user/cari-lapangan' className="form-control col-2 mt-2 col-sm-2 btn shadow-sm" style={{ backgroundColor: '#ffbe2e' }}><button ><i className="fa fa-search text-white"></i></button></a>
+                            </div>
                             <div className="row p-0" style={{ backgroundColor: 'white' }}>
                                 {/* ROW CONTENT */}
                                 <div className="row p-3 justify-content-center">
@@ -54,7 +57,10 @@ export default function TransaksiPending({namaVenueProps}) {
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div className="row d-flex justify-content-center align-items-center mt-4">
-                            
+                            <div className="btn-group col-md-12">
+                                <input type="text" className="form-control col-10 mt-2 col-md-10" placeholder="Cari Transaksi Disini (Nama Pemesan)" />
+                                <a href='/user/cari-lapangan' className="form-control col-2 mt-2 col-sm-2 btn shadow-sm" style={{ backgroundColor: '#ffbe2e' }}><button ><i className="fa fa-search text-white"></i></button></a>
+                            </div>
                             <div className="row p-0" style={{ backgroundColor: 'white' }}>
                                 {/* ROW CONTENT */}
                                 <div className="row p-3 justify-content-center">

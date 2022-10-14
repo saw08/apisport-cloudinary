@@ -362,12 +362,12 @@ export default function EditMitra() {
             <div className="container-login100">
                 <form className="login100-form validate-form" onSubmit={handlePost}>
                     <span className="login100-form-title">
-                        EDIT PROFIL
+                       Lengkapi data gedung
                     </span>
                     <div className="p-3 py-5">
                         <div className="row">
                             <div className=" col-md-12">
-                                <label className="labels">Nama Venue</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
+                                <label className="labels">Nama Gedung</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <input type="text" className="form-control"
                                     required
                                     name="nama"
@@ -378,7 +378,7 @@ export default function EditMitra() {
                         </div>
                         <div className="row mt-2">
                             <div className="mt-2 col-md-12">
-                                <label className="labels">Nama Pemilik Venue</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
+                                <label className="labels">Nama Pemilik Gedung</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <input type="text" className="form-control"
                                     required
                                     name="nama"
@@ -399,7 +399,7 @@ export default function EditMitra() {
                         </div>
                         <div className="row mt-2">
                             <div className="mt-2 col-md-12">
-                                <label className="labels">No. WA Venue</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
+                                <label className="labels">No. WA Pemilik</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <input type="text" className="form-control"
                                     required
                                     value={_noWa}
@@ -547,7 +547,7 @@ export default function EditMitra() {
                         </div>
                         <div className="row mt-2">
                             <div className="mt-2 col-md-12">
-                                <label className="labels">Tambah Rekening</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
+                                <label className="labels">Nomor Rekening</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                             </div>
                             <div className="d-flex flex-row">
                                 <div className='row'>
@@ -555,14 +555,14 @@ export default function EditMitra() {
                                         <input type="text" className='form-control col-3 col-md-3' id='bank' />
                                         <strong className='col-1 col-md-1'>_</strong>
                                         <input type="text" className="form-control col-6 col-md-6" id='rekening' />
-                                        <button onClick={onAddItemArray} type='button' className="form-control col-2 col-md-2"><i className="fa fa-plus"></i></button>
+                                        {/* <button onClick={onAddItemArray} type='button' className="form-control col-2 col-md-2"><i className="fa fa-plus"></i></button> */}
                                     </div>
                                 </div>
 
                             </div>
-                            <div className="mt-2 col-md-12"><label className="labels">Daftar Rekening</label>
-                            </div>
-                            {_rekening.length === 0 ? (
+                            {/* <div className="mt-2 col-md-12"><label className="labels">Daftar Rekening</label>
+                            </div> */}
+                            {/* {_rekening.length === 0 ? (
                                 <h2>Isi Daftar Rekening</h2>
                             ) : (
                                 <>
@@ -577,7 +577,7 @@ export default function EditMitra() {
                                         </div>
                                     ))}
                                 </>
-                            )}
+                            )} */}
                         </div>
                         <hr></hr>
                         <div className="row mt-2">
@@ -602,7 +602,7 @@ export default function EditMitra() {
                         </div>
                         <div className="row mt-2">
                             <div className="mt-2 col-md-12">
-                                <label className="labels">Username</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
+                                <label className="labels">Email</label><i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <input type="text" className="form-control"
                                     required
                                     value={email}
@@ -610,7 +610,7 @@ export default function EditMitra() {
                                 />
                             </div>
                         </div>
-                        <div className="mt-2 col-12 col-md-12"><label className="labels">Foto Mitra</label>
+                        <div className="mt-2 col-12 col-md-12"><label className="labels">Foto Gedung</label>
                             <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                             <div className="mt-2 col-md-12">
                                 <div className="custom-file">
@@ -622,7 +622,7 @@ export default function EditMitra() {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-2 col-12 col-md-12"><label className="labels">Foto Lapangan</label>
+                        <div className="mt-2 col-12 col-md-12"><label className="labels">Foto Gedung</label>
                             {_fotoVenue.length === 0 ? (
                                 <h2>Daftar Foto</h2>
                             ) : (
@@ -677,6 +677,7 @@ export default function EditMitra() {
 
                         <div className="row mt-3 container-login100-form-btn my-3 g-3">
                             <button type="submit"
+                                onClick={onAddItemArray}
                                 className="btn btn-outline-secondary mx-3" style={{ backgroundColor: '#ba8b1e', color: 'rgb(255, 255, 255)', borderRadius: '5cm', width: 500, height: 50 }}
                                 disabled={uploading === false ? (false) : (true)}>
                                 SIMPAN PROFIL
