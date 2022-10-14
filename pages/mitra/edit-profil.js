@@ -435,8 +435,8 @@ export default function EditMitra() {
                                 <i style={{ color: '#ff0000', fontSize: 'larger' }}>*</i>
                                 <div className='row'>
                                     <div className='col-5 col-lg-5 mb-2'>
-                                        <select className="form-control form-select" id="hariOperasionalMulai" value='' onChange={() => setHari()}>
-                                            <option>mlai</option>
+                                        <select className="form-control form-select" id="hariOperasionalMulai" onChange={() => setHari()}>
+                                            <option value={''}>---Mulai---</option>
                                             <option value={'Senin'}>Senin</option>
                                             <option value={'Selasa'}>Selasa</option>
                                             <option value={'Rabu'}>Rabu</option>
@@ -450,8 +450,8 @@ export default function EditMitra() {
                                         <strong>_</strong>
                                     </div>
                                     <div className='col-5 col-lg-5 mb-2'>
-                                        <select className="form-control form-select" value='' id="hariOperasionalAkhir" onChange={() => setHari()}>
-                                            <option>Akhir</option>
+                                        <select className="form-control form-select" id="hariOperasionalAkhir" onChange={() => setHari()}>
+                                            <option value={''}>---Akhir---</option>
                                             <option value={'Senin'}>Senin</option>
                                             <option value={'Selasa'}>Selasa</option>
                                             <option value={'Rabu'}>Rabu</option>
