@@ -75,7 +75,7 @@ export default function Detailvenue() {
                   <h5 className="card-title mt-3" style={{ color: "black" }}><strong>{venue.infoVenue[0].namaVenue}</strong></h5>
                   <span className="card-text" style={{ color: "black" }}><icon className='fa fa-calendar'></icon><b> {venue.infoVenue[0].hariOperasional}</b></span><br></br>
                   <span className="card-text" style={{ color: "black" }}><icon className='fa fa-clock'></icon> <b>{venue.infoVenue[0].jamOperasional}</b></span><br></br>
-                <span className="card-text" style={{ color: "black" }}><icon className='fa fa-compass'></icon> <b>{venue.infoVenue[0].alamat}</b></span><br></br>
+                  <span className="card-text" style={{ color: "black" }}><icon className='fa fa-compass'></icon> <b>{venue.infoVenue[0].kabupaten},{venue.infoVenue[0].kecamatan},{venue.infoVenue[0].alamat}</b></span><br></br>
               <span className="card-text" style={{ color: "black" }}><icon className='fa fa-futbol'></icon><b> {venue.infoVenue[0].kategori}</b></span><br></br>
               <span className="card-text text-muted" style={{ color: "black" }}><strong>Harga mulai dari </strong><br></br><span style={{ color: "green" }}><b>{venue.infoLapangan.length === 0 ? ('Tidak ada data lapangan tersedia') : (` Rp ${venue.infoLapangan[0].hargaPagi.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`)}</b></span></span>
                 </div>
@@ -84,9 +84,19 @@ export default function Detailvenue() {
             </div>
           </div>
         </div>
-
       </div>
-      <div className='row'>
+      <div>
+        <b>
+          Lapangan {venue.infoVenue[0].namaVenue} merupakan lapangan olahraga {venue.infoVenue[0].kategori} yang berlokasi di 
+          {venue.infoVenue[0].kabupaten},{venue.infoVenue[0].kecamatan},{venue.infoVenue[0].alamat}. Gedung lapangan{venue.infoVenue[0].namaVenue}
+          mempunyai {venue.infoLapangan.length} lapangan dan
+          fasilitas yang memadai seperti: {venue.infoVenue[0].fasilitas}
+          {venue.infoVenue[0].namaVenue} juga mempunyai sosial media @{venue.infoVenue[0].instagram} dan juga whatsapp {venue.infoVenue[0].noWa}
+          Untuk harga sewa lapangan mulai {venue.infoLapangan[0].hargaPagi} hingga {venue.infoLapangan[0].hargaMalam}. Gedung lapangan
+          {venue.infoVenue[0].namaVenue} ini operasional mulai hari {venue.infoVenue[0].hariOperasional} dari jam {venue.infoVenue[0].jamOperasional}.
+        </b>
+      </div>
+      <div className='row my-2'>
         <a  style={{ color: "black" }}>
           <h5 className='d-flex justify-content-between'><b> Fasilitas</b>
           </h5>

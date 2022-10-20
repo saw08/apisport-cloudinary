@@ -6,6 +6,9 @@ import CardRekomendasi from '../components/user/lapangan/CardRekomendasi'
 import CardKategori from '../components/user/lapangan/CardKategori'
  import Pagination from '../components/Pagination'
 import { useState } from 'react'
+import useSWR from 'swr'
+import Carilokasi from '../components/user/cari-lokasi'
+
 
 
 export default function Lapangan() {
@@ -53,6 +56,9 @@ export default function Lapangan() {
                             <a href='/cari-lapangan' className="form-control col-2 mt-2 col-sm-2 btn shadow-sm" style={{ backgroundColor: '#ffbe2e' }}><button ><i className="fa fa-search text-white"></i></button></a>
                         </div>
                     </div>
+                </div>
+                <div className="container">
+                    <Carilokasi/>
                 </div>
                 <div className="container my-4 text-black-50" >
                     <h4 style={{ color: 'black' }}>Rekomendasi Lapangan</h4>
