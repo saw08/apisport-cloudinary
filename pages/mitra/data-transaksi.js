@@ -182,6 +182,7 @@ export default function Datatransaksi({ namaVenueProps }) {
             <div className='container-fluid'>
                 <div className='d-flex flex-row justify-content-center mb-5'>
                     <h1>Data Transaksi Bulanan</h1>
+                    <h3>{namaVenueProps}</h3>
                 </div>
                 <div className='container-fluid mb-2'>
                     <div>
