@@ -13,27 +13,45 @@ webpush.setVapidDetails("mailto:api.sport.team@gmail.com", vapidKeys.publicKey, 
 export default async (req, res) => {
     let { db } = await connectToDatabase();
     if (req.method == "GET") {
-        const { email,id } = req.query;
+        const { email, id } = req.query;
         // const idTransaksi = new ObjectId(idTransaksiReq)
 
         let getSubscribeData = await db.collection('tbl_notifikasi_mitra').find({ email: email }).toArray();
         // let getTransaksiData = await db.collection('transaksi').find({ _id: idTransaksi }).toArray();
         console.log(getSubscribeData);
         // console.log(getTransaksiData);
-        const pushSubscription = JSON.parse(getSubscribeData[getSubscribeData.length-1].subscribe_req);
-        webpush.sendNotification(
-            pushSubscription,
-            JSON.stringify({
-                title: `Transaksi Baru Telah diterima! Dengan ID ${id}`,
-                text: `Mohon untuk segera menerima atau menolak transaksi`,
-                image: "/ico.png",
-                tag: "new-transaction",
-                url: `/mitra/detail-notifikasi?idTransaksi=${id}`
-            })
-        )
-            .catch(err => {
-                console.log(err);
-            });
+
+        // const pushSubscription = JSON.parse(getSubscribeData[getSubscribeData.length - 1].subscribe_req);
+        // webpush.sendNotification(
+        //     pushSubscription,
+        //     JSON.stringify({
+        //         title: `Transaksi Baru Telah diterima! Dengan ID ${id}`,
+        //         text: `Mohon untuk segera menerima atau menolak transaksi`,
+        //         image: "/ico.png",
+        //         tag: "new-transaction",
+        //         url: `/mitra/detail-notifikasi?idTransaksi=${id}`
+        //     })
+        // )
+        //     .catch(err => {
+        //         console.log(err);
+        //     });
+
+        for (let i = 0; i < getSubscribeData.length; i++) {
+            const pushSubscription = JSON.parse(getSubscribeData[i].subscribe_req);
+            webpush.sendNotification(
+                pushSubscription,
+                JSON.stringify({
+                    title: `Transaksi Baru Telah diterima! Dengan ID ${id}`,
+                    text: `Mohon untuk segera menerima atau menolak transaksi`,
+                    image: "/ico.png",
+                    tag: "new-transaction",
+                    url: `/mitra/detail-notifikasi?idTransaksi=${id}`
+                })
+            )
+                .catch(err => {
+                    console.log(err);
+                });
+        }
 
         res.status(202).json({});
     }
