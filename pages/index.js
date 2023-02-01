@@ -87,7 +87,7 @@ export default function Home() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      <div className='container my-4 text-bold'>
+      <div className='container my-2 text-bold'>
         <h4 className='fw-bold fst-italic' style={{ color: '#EE8F00' }}>KATEGORI OLAHRAGA</h4>
         <div className="row row-cols-4 row-cols-md-4 g-4">
           <div className="col-3 col-lg-3">
@@ -175,7 +175,7 @@ export default function Home() {
       <div>
         <div className="container my-4 text-black-50" >
           <h4 style={{ color: '#EE8F00' }} className='fw-bold fst-italic'>REKOMENDASI LAPANGAN</h4>
-          <div className="row g-2 mt-3 p-2">
+          <div className="row g-2 p-2">
             {rekomendasi.length === 0 ? (
               <></>
             ) : (
