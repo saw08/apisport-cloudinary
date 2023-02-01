@@ -89,7 +89,7 @@ export default function Home() {
       </div>
       <div className='container my-4 text-bold'>
         <h4 className='fw-bold fst-italic' style={{ color: '#EE8F00' }}>KATEGORI OLAHRAGA</h4>
-        <div className="row row-cols-4 row-cols-md-4 g-4 mt-3">
+        <div className="row row-cols-4 row-cols-md-4 g-4">
           <div className="col-3 col-lg-3">
             <Link href={{
               pathname: '/kategori-lapangan',
